@@ -1,3 +1,121 @@
-<div class="container-fluid bg-primary">
- mcjkdcjdscjkds
+<div class="container">
+
+    <!-- <div class="row border border-primary mt-4 p-2">
+                <div class="col-6">
+                        <div class="card">
+                                <div class="card-header">
+                                  American Fund
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Unprocessed Target Date</h5>
+                                  <p class="card-text">03-march-2019</p>
+                                  <button type="button" class="btn btn-outline-primary">Process American Fund</button>
+                                </div>
+                              </div>
+                        
+                </div>
+                <div class="col-6">
+                        <div class="card">
+                                <div class="card-header">
+                                  AFIS Fund
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Unprocessed Target Date</h5>
+                                  <p class="card-text">03-march-2019</p>
+                                  <button type="button" class="btn btn-outline-primary">Process AFIS Fund</button>
+                                </div>
+                              </div>
+                </div>
+               
+        </div> -->
+
+
+    <div class="row border border-primary mt-4 p-2">
+        <div class="col">
+
+
+            <mat-horizontal-stepper [linear]="isLinear" #stepper >
+
+                <mat-step [stepControl]="firstFormGroup">
+                    <ng-template matStepLabel>AM Fund</ng-template>
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            American Fund
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Unprocessed Target Date</h5>
+                            <p class="card-text">03-march-2019</p>
+                            <button mat-raised-button color="primary">Process American Fund</button>
+                        </div>
+                    </div>
+                </mat-step>
+
+
+                <mat-step [stepControl]="secondFormGroup">
+                    <ng-template matStepLabel>AFIS Fund</ng-template>
+
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            AFIS Fund
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Unprocessed Target Date</h5>
+                            <p class="card-text">03-march-2019</p>
+                            <button mat-raised-button color="primary">Process AFIS Fund</button>
+                        </div>
+                    </div>
+                    <!-- <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div> -->
+
+                </mat-step>
+
+
+                <mat-step>
+                    <ng-template matStepLabel>status</ng-template>
+                    Fund Processed
+                    <!-- <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div> -->
+                </mat-step>
+            </mat-horizontal-stepper>
+
+        </div>
+    </div>
+
+    <div class="row border border-primary mt-4 p-4">
+        <div class="col">
+
+            <!-- <mat-accordion>
+                                <mat-expansion-panel>
+                                      <mat-expansion-panel-header>
+                                        <mat-panel-title>View Previous Fund Allocation</mat-panel-title>
+                                        <mat-panel-description>T</mat-panel-description>
+                                      </mat-expansion-panel-header> -->
+
+            <div class="text-uppercase font-weight-normal text-left">View Previous Fund Allocation</div>
+            <mat-form-field class="d-block">
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" >View Allocation</button>
+            <!--                                   
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                                   -->
+        </div>
+    </div>
+
+    <div class="row border border-primary mt-4 p-4">
+        <div class="col">
+            <div class="text-uppercase font-weight-normal text-left">Current Allocation by Underlying Fund</div>
+            <button mat-raised-button color="primary" >Download American Fund</button>
+            
+        </div>
+    </div>
+
 </div>

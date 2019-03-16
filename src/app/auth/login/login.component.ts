@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log("login...") 
     const val = this.form.value;
+    this.router.navigate(["welcome"]);
   }
 
   clear(){
