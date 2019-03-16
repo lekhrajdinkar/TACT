@@ -1,15 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+
 
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
 
-  ngOnInit() {
+  constructor(
+      private fb:FormBuilder, private router:Router) {
+
+      this.form = fb.group({
+          email: ['tact_data_entry', [Validators.required]],
+          password: ['tact_data_entry', [Validators.required]]
+      });
+
   }
+
+  ngOnInit() {}
+
+  login() {
+    console.log("login...") 
+    const val = this.form.value;
+  }
+
+  clear(){
+    console.log("clear feilds...")
+  }
+
 
 }
