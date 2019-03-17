@@ -11,6 +11,7 @@ import { WelcomeComponent } from './home/welcome.component';
 import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenance.component';
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
+import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home/home.component';
     WelcomeComponent,
     FundMaintenanceComponent,
     ReportComponent,
-    HomeComponent
+    HomeComponent,
+    FundEditComponent
   ],
   imports: [
     BrowserModule,

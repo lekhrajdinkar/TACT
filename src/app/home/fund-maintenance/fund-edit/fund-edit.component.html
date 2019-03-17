@@ -1,0 +1,17 @@
+<mat-card class="border border-primary p-6 m-4">
+
+  <mat-card-header>
+  <mat-card-title>Edit Fund Details</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="d-flex">
+    <mat-form-field appearance="outline" *ngFor="let feild of fundFeilds">
+      <mat-label>{{feild}}</mat-label>
+      <input matInput placeholder="Placeholder">
+    </mat-form-field>
+    <button mat-fab color="accent" class="ml-1">Save</button>
+  </mat-card-content>
+
+
+ 
+</mat-card>
