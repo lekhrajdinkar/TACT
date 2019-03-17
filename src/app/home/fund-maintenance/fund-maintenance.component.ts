@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource, MatPaginator} from '@angular/material';
 import { FundMaintainance, ELEMENT_DATA } from 'src/app/MODEL/FundMaintainance';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -24,12 +24,18 @@ export interface PeriodicElement {
     ]),
   ]
 })
-export class FundMaintenanceComponent implements OnInit {
+export class FundMaintenanceComponent implements OnInit, AfterViewInit{
 
+  @ViewChild("paginator1") paginator : MatPaginator ;
   constructor() { }
 
   ngOnInit() {
   }
+
+  ngAfterViewInit(){
+    this.dataSource.paginator = this.paginator ;
+  }
+
 
   displayedColumns: string[] = ['fundNumber', 'acctNumber',  'class', 'symbol', 'dstFundCode', 'dstAcctNumber' ,'category', 'submittedBy', 'submittedOn', 'approvedBy', 'approvedOn' ];
   dataSource = new MatTableDataSource<FundMaintainance>(ELEMENT_DATA);
