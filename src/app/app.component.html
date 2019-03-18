@@ -4,8 +4,12 @@
     <mat-sidenav #start>
         <mat-nav-list (click)="start.close()">
 
-            <a mat-list-item routerLink="/login">
+            <a mat-list-item routerLink="/login" *ngIf="!(isLoggedIn$ | async)">
                 <mat-icon>face</mat-icon> <span>Login</span>
+            </a>
+
+            <a mat-list-item routerLink="/login" *ngIf="isLoggedIn$ | async">
+                <mat-icon>power_settings_new</mat-icon> <span>Logout</span>
             </a>
 
             <a mat-list-item routerLink="/about">
@@ -57,7 +61,10 @@
                     <button mat-menu-item>
                         <mat-icon>dashboard</mat-icon><span>Admin</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="logout()" *ngIf="!(isLoggedIn$ | async)">
+                        <mat-icon>face</mat-icon><span>LogIn</span>
+                    </button>
+                    <button mat-menu-item (click)="logout()" *ngIf="(isLoggedIn$ | async)">
                         <mat-icon>power_settings_new</mat-icon><span>Logout</span>
                     </button>
                     <button mat-menu-item>

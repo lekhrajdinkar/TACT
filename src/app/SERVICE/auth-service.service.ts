@@ -29,6 +29,6 @@ export class AuthService {
 
   logout(){
     this.subject.next(UNKNOWN_USER);
-      this.router.navigate(["login"]);
+    this.router.navigate(["login"]);
   }
 }
