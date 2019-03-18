@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home/home.component';
-import { WelcomeComponent } from './home/welcome.component';
+
 import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenance.component';
 import { ReportComponent } from './home/report/report.component';
 

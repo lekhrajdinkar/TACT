@@ -7,7 +7,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { WelcomeComponent } from './home/welcome.component';
 import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenance.component';
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
@@ -17,7 +16,6 @@ import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.c
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent,
     FundMaintenanceComponent,
     ReportComponent,
     HomeComponent,
