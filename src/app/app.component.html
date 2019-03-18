@@ -32,18 +32,18 @@
             </button>
 
             <!-- title -->
-            <button mat-icon-button color="accent">
+            <button mat-icon-button color="accent" routerLink= "home">
                 <mat-icon>home</mat-icon>
             </button>
             <h2 class="text-monospace"> Fund Allocation & Calculation Tool</h2>
             <div class="container ml-4" *ngIf="isLoggedIn$ | async">
                 <div class="row justify-content ">
-                    <button mat-raised-button color="accent">
+                    <button mat-raised-button color="accent" (click)="this.router.navigate(['fundmtn'])">
                         <mat-icon>account_balance</mat-icon>
-                        Fund Maintenance
+                        <span>Fund Maintenance</span>
                     </button>
 
-                    <button mat-raised-button color="accent" class="ml-4">
+                    <button mat-raised-button color="accent" class="ml-4" [routerLink]= "['rpt']">
                         <mat-icon>insert_drive_file</mat-icon>
                         <span>Report</span>
                     </button>

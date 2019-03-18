@@ -20,7 +20,7 @@ export class AuthService {
   authorize(username : string){
     if(true){
       this.subject.next({username});
-      this.router.navigate(["welcome"]);
+      this.router.navigate(["home"]);
     }else{
       alert('login failed');
     }
