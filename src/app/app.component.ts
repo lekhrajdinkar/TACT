@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService, UNKNOWN_USER } from './SERVICE/auth-service.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +12,17 @@ export class AppComponent implements OnInit{
  
   title = 'TACT';
 
-  isLooggedIn$ : Observable<boolean> ;
+  isLoggedIn$ : Observable<boolean> ;
 
   constructor(private authSrv : AuthService){
 
   }
 
   ngOnInit(): void {
-   // this.isLooggedIn$ = 
-    this.authSrv.user$.pipe(); 
+    //transform one Obs to another.
+   this.isLoggedIn$ = this.authSrv.user$.pipe(
+     map (user => {console.log(user); return user !==  UNKNOWN_USER; })
+     ); 
   }
 
 }

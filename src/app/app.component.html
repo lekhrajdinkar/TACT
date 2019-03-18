@@ -32,7 +32,7 @@
                 <mat-icon>home</mat-icon>
             </button>
             <h2 class="text-monospace"> Fund Allocation & Calculation Tool</h2>
-            <div class="container ml-4">
+            <div class="container ml-4" *ngIf="isLoggedIn$ | async">
                 <div class="row justify-content ">
                     <button mat-raised-button color="accent">
                         <mat-icon>account_balance</mat-icon>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <!-- menu option -->
-            <div class="ml-auto">
+            <div class="ml-auto" >
 
                 <!-- more Option button-->
                 <button mat-icon-button [matMenuTriggerFor]="menu">
