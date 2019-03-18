@@ -1,46 +1,81 @@
 <mat-sidenav-container fullscreen>
 
-  <mat-sidenav #start>
-      <mat-nav-list (click)="start.close()">
+    <!-- SIDE NAV -->
+    <mat-sidenav #start>
+        <mat-nav-list (click)="start.close()">
 
-          <a mat-list-item routerLink="/login">
-              <!-- <mat-icon>Login</mat-icon> -->
-              <mat-icon>face</mat-icon> <span>Login</span>
-          </a>
+            <a mat-list-item routerLink="/login">
+                <mat-icon>face</mat-icon> <span>Login</span>
+            </a>
 
-          <a mat-list-item routerLink="/about">
-              <!-- <mat-icon>About TACT</mat-icon> -->
-              <mat-icon>info</mat-icon> <span>About</span>
-          </a>
+            <a mat-list-item routerLink="/about">
+                <mat-icon>info</mat-icon> <span>About</span>
+            </a>
 
-      </mat-nav-list>
+        </mat-nav-list>
 
-  </mat-sidenav>
+    </mat-sidenav>
 
-  <mat-toolbar color="primary">
-      <button class="menu-button" mat-icon-button (click)="start.open('mouse')">
-          <mat-icon>menu</mat-icon>
-      </button>
+    <!-- MAT Tool Bar -->
+    <mat-toolbar color="primary" class="sticky-top">
 
-      <h2 class="text-monospace"> Fund Allocation & Calculation Tool</h2>
+        <!-- MAT tool bar row - 1 -->
+        <mat-toolbar-row>
 
-      <div class="ml-auto">
-      <!-- <h2 class="d-inline-block text-monospace">Welcome UserName1</h2> -->
-      <button mat-icon-button [matMenuTriggerFor]="menu" >
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item><mat-icon>dashboard</mat-icon><span>Admin</span></button>
-        <button mat-menu-item><mat-icon>power_settings_new</mat-icon><span>Logout</span></button>
-        <button mat-menu-item><mat-icon>info</mat-icon><span>About TACT</span></button>
-      </mat-menu>
-    </div>
+            <!-- hamburger -->
+            <button class="menu-button" mat-icon-button (click)="start.open('mouse')">
+                <mat-icon>menu</mat-icon>
+            </button>
 
-  </mat-toolbar>
+            <!-- title -->
+            <button mat-icon-button color="accent">
+                <mat-icon>home</mat-icon>
+            </button>
+            <h2 class="text-monospace"> Fund Allocation & Calculation Tool</h2>
+            <div class="container ml-4">
+                <div class="row justify-content ">
+                    <button mat-raised-button color="accent">
+                        <mat-icon>account_balance</mat-icon>
+                        Fund Maintenance
+                    </button>
 
-  <router-outlet></router-outlet>
+                    <button mat-raised-button color="accent" class="ml-4">
+                        <mat-icon>insert_drive_file</mat-icon>
+                        <span>Report</span>
+                    </button>
+                </div>
+            </div>
+            <!-- menu option -->
+            <div class="ml-auto">
+
+                <!-- more Option button-->
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>dashboard</mat-icon><span>Admin</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>power_settings_new</mat-icon><span>Logout</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>info</mat-icon><span>About TACT</span>
+                    </button>
+                </mat-menu>
+
+            </div>
+
+        </mat-toolbar-row>
+        <!-- <mat-toolbar-row>
+                <span>Custom Toolbar</span>
+        </mat-toolbar-row> -->
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
 
 
 
 </mat-sidenav-container>
-

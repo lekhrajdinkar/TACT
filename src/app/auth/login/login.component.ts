@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { AuthService } from 'src/app/SERVICE/auth-service.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-      private fb:FormBuilder, private router:Router) {
+      private fb:FormBuilder, private router:Router, private authSrv : AuthService) {
 
       this.form = fb.group({
           email: ['tact_data_entry', [Validators.required]],
@@ -24,10 +25,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
+
   login() {
     console.log("login...") 
     const val = this.form.value;
-    this.router.navigate(["welcome"]);
+    this.authSrv.authorize('tact_data_entry');
   }
 
   clear(){
