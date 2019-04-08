@@ -10,16 +10,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FundListComponent implements OnInit {
 
-  funds : Fund[] =[
-    {abbr: 'abbr11', num : '11000011'},
-    {abbr: 'abbr13', num : '11000013'}, 
-    {abbr: 'abbr12', num : '11000012'}
-  ]
+  funds: Fund[];
 
-  constructor(private route: ActivatedRoute, 
+  constructor(
+    private route: ActivatedRoute, 
     private srv: FundService) { }
 
   ngOnInit() {
+    const funds$ = this.srv.getAllFunds().subscribe((data) => {
+      //console.log(data);
+      this.funds = data;
+    },
+    (err) => {
+      console.log(err);
+    }
+    );
+    console.log(funds$);
   }
 
 }
+
+// [
+//   {abbr: 'abbr11', num : '11000011'},
+//   {abbr: 'abbr13', num : '11000013'}, 
+//   {abbr: 'abbr12', num : '11000012'}
+// ]

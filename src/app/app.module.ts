@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home/home.component';
 import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.component';
 import { FundModule } from './FEATURES/fund-module/fund.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { FundModule } from './FEATURES/fund-module/fund.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,ReactiveFormsModule,
+
     MaterialModule,
     AppRoutingModule,
 
