@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { FundService } from '../fund.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { Fund } from '../fund.model';
 
 
@@ -11,15 +9,11 @@ import { Fund } from '../fund.model';
 })
 export class FundComponent implements OnInit {
 
-  fund:Fund;
+  @Input('fund') fund:Fund;
 
-  constructor(
-    private route: ActivatedRoute, 
-    private srv: FundService) {}
+  constructor() {}
 
-  ngOnInit() {
-      this.fund = this.route.snapshot.data["fund"];
-  }
+  ngOnInit() { }
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit : FundComponent');

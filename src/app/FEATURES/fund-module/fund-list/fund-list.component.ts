@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fund } from '../fund.model';
+import { FundService } from '../fund.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-fund-list',
@@ -9,10 +11,13 @@ import { Fund } from '../fund.model';
 export class FundListComponent implements OnInit {
 
   funds : Fund[] =[
-    {abbr: 'abbr11', num : '11000011'},{abbr: 'abbr13', num : '11000013'}, {abbr: 'abbr12', num : '11000012'}
+    {abbr: 'abbr11', num : '11000011'},
+    {abbr: 'abbr13', num : '11000013'}, 
+    {abbr: 'abbr12', num : '11000012'}
   ]
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, 
+    private srv: FundService) { }
 
   ngOnInit() {
   }

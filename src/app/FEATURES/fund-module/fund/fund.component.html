@@ -1,6 +1,17 @@
 <div class="fund">
 
-  <h2>{{fund.name}}</h2>
-  <h3>{{fund.abbr}}</h3>
+<mat-card-header>
+    <mat-card-title>{{fund.num}} | {{fund.abbr}}</mat-card-title>
+</mat-card-header>
+
+<!-- <img mat-card-image [src]="course.iconUrl"> -->
+
+<mat-card-content>
+    <p></p>
+</mat-card-content>
+
+<mat-card-actions class="fund-actions">
+    <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/fund', fund.id]">VIEW</button>
+</mat-card-actions>
 
 </div>
