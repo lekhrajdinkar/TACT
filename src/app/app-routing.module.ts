@@ -5,18 +5,24 @@ import { HomeComponent } from './home/home/home.component';
 
 import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenance.component';
 import { ReportComponent } from './home/report/report.component';
+import { FundModuleRouting } from './FEATURES/fund-module/fund.module.routing';
+import { FundListComponent } from './FEATURES/fund-module/fund-list/fund-list.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent }, //login
+  { path: 'login', component: LoginComponent }, //login
   
-  //{ path: 'welcome', component: WelcomeComponent },
+  //old routes
   { path: 'home', component: HomeComponent },
   { path: 'fundmtn', component: FundMaintenanceComponent },
   { path: 'rpt', component: ReportComponent  },
 
-  { path: '**', component: LoginComponent },
+  { 
+    path: 'fund-module', children : [ { path: 'get-all', component: FundListComponent }]
+  }, //2. Fund Module - FundModuleRouting
+
+  { path: '**', component: LoginComponent } //no match > login 
 ];
 
 @NgModule({
