@@ -26,10 +26,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
 
-  login() {
-    console.log("login...") 
-    const val = this.form.value;
-    this.authSrv.authorize('tact_data_entry');
+  login(u,p) {
+    this.authSrv.authorize(u,p);
   }
 
   clear(){

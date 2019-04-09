@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserDetail } from '../MODEL/User';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { AuthResponse } from '../auth/auth.model';
 
 export const UNKNOWN_USER : UserDetail = {username : 'unknown'}
 
@@ -11,23 +14,35 @@ export const UNKNOWN_USER : UserDetail = {username : 'unknown'}
 export class AuthService {
 
   //own observable
-  private subject = new BehaviorSubject(UNKNOWN_USER);
+  private subject = new BehaviorSubject(UNKNOWN_USER);//its private ***
   user$: Observable<UserDetail> = this.subject.asObservable();
 
-  constructor(private router:Router) { }
+  authResp :AuthResponse;
+
+ 
+  constructor(private router:Router, private http : HttpClient) { }
 
   //Fake Login
-  authorize(username : string){
-    if(true){
-      this.subject.next({username});
-      this.router.navigate(["home"]);
-    }else{
-      alert('login failed');
-    }
-    
+  authorize(initial : string, password : string){
+
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':  'application/json'})
+    };
+
+     this.http.post('https://tact-nodejs.herokuapp.com/tact2/login',{initial,password} ,httpOptions).subscribe(
+      (data: AuthResponse) => {
+        this.authResp = data;
+        this.subject.next({username : data.initial});
+        this.router.navigate(["home"]);
+      },
+      (err) => {
+        alert('login failed');
+      }
+    )
   }
 
   logout(){
+    this.authResp = null; //clean up jwt 
     this.subject.next(UNKNOWN_USER);
     this.router.navigate(["login"]);
   }

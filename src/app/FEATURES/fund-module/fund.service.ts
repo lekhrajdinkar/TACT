@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Fund } from './fund.model';
+import { AuthService } from 'src/app/SERVICE/auth-service.service';
 
 @Injectable()
 export class FundService{
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private authSrv : AuthService) { }
 
   getAllFunds(){
     return this.http.get<Fund[]>('https://tact-nodejs.herokuapp.com/tact2/get-all-funds');
@@ -14,9 +15,16 @@ export class FundService{
     }
 
     addFund(fund: Fund){
+      let token = '';
+      if(this.authSrv.authResp){
+       token = this.authSrv.authResp.jwt ;}
+
+      console.log('token : ', token);
+
       const httpOptions = {
         headers: new HttpHeaders({
-          'Content-Type':  'application/json'
+          'Content-Type':  'application/json',
+          'Authorization' : 'Bearer '+token
         })
       };
 
