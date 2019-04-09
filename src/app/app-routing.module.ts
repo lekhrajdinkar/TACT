@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home/home.component';
 
 import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenance.component';
 import { ReportComponent } from './home/report/report.component';
+import { ErrorComponent } from './error/error.component';
 
 
 const routes: Routes = [
@@ -16,9 +17,9 @@ const routes: Routes = [
   { path: 'fundmtn', component: FundMaintenanceComponent },
   { path: 'rpt', component: ReportComponent  },
 
-  { path: 'user-module', loadChildren:'./FEATURES/user-module/user.model#UserModule'}, 
+  { path: 'user-module', loadChildren:'./FEATURES/user-module/user.module#UserModule'}, 
 
-  { path: '**', component: LoginComponent } //no match > login 
+  { path: '**', component: ErrorComponent } //no match > login 
 ];
 
 @NgModule({

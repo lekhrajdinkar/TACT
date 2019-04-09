@@ -10,7 +10,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 const routes: Routes = 
 [
   {
-    path: 'user-module', component : UserComponent, children: 
+    path: '', component : UserComponent, children: 
     [
       { path: 'get-detail', component: UserDetailComponent },
       { path: 'add-user', component: UserAddComponent }

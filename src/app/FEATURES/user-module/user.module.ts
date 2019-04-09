@@ -23,4 +23,5 @@ import { UserModuleRouting } from './user.module.routing';
   ],
   providers :[UserService]
 })
+
 export class UserModule { }

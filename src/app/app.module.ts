@@ -11,7 +11,8 @@ import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenan
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
 import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.component';
-import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loaded module
+import { FundModule } from './FEATURES/fund-module/fund.module';
+import { ErrorComponent } from './error/error.component'; //eagerly loaded module
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loade
     FundMaintenanceComponent,
     ReportComponent,
     HomeComponent,
-    FundEditComponent
+    FundEditComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +31,10 @@ import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loade
     FormsModule,ReactiveFormsModule,
 
     MaterialModule,
+    FundModule, //routing order matter, load it  FundModule(fund.routing.module) before AppRoutingModule ***
     AppRoutingModule,
 
-    FundModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
