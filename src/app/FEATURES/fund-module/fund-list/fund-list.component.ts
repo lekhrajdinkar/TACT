@@ -17,15 +17,12 @@ export class FundListComponent implements OnInit {
     private srv: FundService) { }
 
   ngOnInit() {
-    const funds$ = this.srv.getAllFunds().subscribe((data) => {
-      //console.log(data);
-      this.funds = data;
-    },
-    (err) => {
-      console.log(err);
-    }
+    const funds$ = this.srv.getAllFunds()
+    .subscribe(
+      (data) => {this.funds = data;},
+      (err) => {console.log(err);}
     );
-    console.log(funds$);
+    //console.log(funds$);
   }
 
 }

@@ -7,6 +7,7 @@ import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenan
 import { ReportComponent } from './home/report/report.component';
 import { FundModuleRouting } from './FEATURES/fund-module/fund.module.routing';
 import { FundListComponent } from './FEATURES/fund-module/fund-list/fund-list.component';
+import { FundAddComponent } from './FEATURES/fund-module/fund-add/fund-add.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,10 @@ const routes: Routes = [
   { path: 'rpt', component: ReportComponent  },
 
   { 
-    path: 'fund-module', children : [ { path: 'get-all', component: FundListComponent }]
+    path: 'fund-module', children : [ 
+      { path: 'get-all', component: FundListComponent },
+      { path: 'add-fund', component: FundAddComponent }
+    ]
   }, //2. Fund Module - FundModuleRouting
 
   { path: '**', component: LoginComponent } //no match > login 

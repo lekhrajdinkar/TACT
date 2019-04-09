@@ -1,0 +1,21 @@
+<mat-card class="add-fund-card">
+
+  <mat-card-title>Add New Fund</mat-card-title>
+
+  <mat-card-content>
+    
+      <mat-form-field>
+        <input matInput type="text" placeholder="fund abbreviation" name="abbr" ngModel #abbr>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput type="text" placeholder="fund number" name="num" ngModel #num>
+      </mat-form-field>
+  
+  </mat-card-content>
+
+  <mat-card-actions class="fund-actions">
+      <button mat-raised-button color="primary" type="submit" (click)= 'addFund(abbr.value, num.value)'>Add</button>   
+  </mat-card-actions>
+
+</mat-card>

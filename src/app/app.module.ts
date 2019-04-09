@@ -11,7 +11,7 @@ import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenan
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
 import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.component';
-import { FundModule } from './FEATURES/fund-module/fund.module';
+import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loaded module
 
 
 @NgModule({
