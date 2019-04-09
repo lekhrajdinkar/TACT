@@ -9,16 +9,18 @@ import { FundService } from './fund.service';
 import { FundAddComponent } from './fund-add/fund-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FundDetailComponent } from './fund-detail/fund-detail.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { FundModuleRouting } from './fund.module.routing';
+
 
 @NgModule({
-  declarations: [FundComponent, FundListComponent, FundAddComponent, FundDetailComponent, UserDetailComponent],
+  declarations: [FundComponent, FundListComponent, FundAddComponent, FundDetailComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
+    FundModuleRouting
   ],
   providers: [FundService]
 })
