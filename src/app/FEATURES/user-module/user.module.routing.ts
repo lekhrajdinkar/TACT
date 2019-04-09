@@ -7,9 +7,11 @@ import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
-const routes: Routes = [
+const routes: Routes = 
+[
   {
-    path: 'user-module', component : UserComponent, children: [
+    path: 'user-module', component : UserComponent, children: 
+    [
       { path: 'get-detail', component: UserDetailComponent },
       { path: 'add-user', component: UserAddComponent }
     ]
