@@ -29,6 +29,7 @@ export class FundListComponent implements OnInit {
     );
     
     this.srv.getAllFunds3_play();
+    //this.srv.parallelRequests();
   }
 
 

@@ -31,7 +31,7 @@ export class AuthService {
 
     const url1 = 'https://tact-nodejs.herokuapp.com/tact2/login' ;
     const url2 = 'http://localhost:5000/tact2/login' ;
-     this.http.post(url2,{initial,password} ,httpOptions).subscribe(
+     this.http.post(url1,{initial,password} ,httpOptions).subscribe(
       (data: AuthResponse) => {
         this.authResp = data;
         this.subject.next({username : data.initial});

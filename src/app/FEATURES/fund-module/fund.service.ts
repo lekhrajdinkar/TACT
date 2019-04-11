@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpParams, HttpErrorResponse, H
 import { Observable, throwError } from 'rxjs';
 import { Fund } from './fund.model';
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
-import { map, tap, catchError } from 'rxjs/operators';
+import { map, tap, catchError, shareReplay } from 'rxjs/operators';
 
 //============================
 // Play with HttpClient Here
@@ -11,8 +11,8 @@ import { map, tap, catchError } from 'rxjs/operators';
 @Injectable()
 export class FundService{
 
-  //host = 'https://tact-nodejs.herokuapp.com' ;
-  host = 'http://localhost:5000' ;
+  host = 'https://tact-nodejs.herokuapp.com' ;
+  //host = 'http://localhost:5000' ;
 
   constructor(private http:HttpClient, private authSrv : AuthService) { }
 
@@ -75,12 +75,27 @@ export class FundService{
        }
     ).pipe(
       tap((r)=> {console.log('PLAY tap: ',r)}),
-      catchError(this.handleError)
+      catchError(this.handleError),
+      shareReplay()
       //tap((r)=> {return r.body ;}),
     )
    .subscribe((r) => {console.log('PLAY subscribe: ',r);},(err) => {console.error(err)});
 }
-//case 1 - arra
+
+//parallel request
+// parallelRequests() {
+
+//   const parallel$ = Observable.forkJoin(
+//       this.http.get(`${this.host}/tact2/get-latest-fund`),
+//       this.http.get(`${this.host}/tact2/get-latest-fund`)
+//   );
+
+//   parallel$.subscribe(
+//       values => {
+//           console.log("all values", values)
+//       }
+//   );
+// }
   
 
 
