@@ -1,17 +1,24 @@
 <div class="fund">
 
 <mat-card-header>
-    <mat-card-title>{{index}} | {{fund.num}} | {{fund.abbr}}</mat-card-title>
+    <mat-card-title>
+        <p class="badge badge-warning text-wrap"> Fund Number : {{fund.num}}</p>
+        
+    </mat-card-title>
 </mat-card-header>
 
 <!-- <img mat-card-image [src]="course.iconUrl"> -->
 
 <mat-card-content>
-    <p></p>
+        <p class="text-muted"> Abbreviation: {{fund.abbr}}</p>
+        <p class="text-muted"> {{fund.created_by}}</p>
+        <p class="text-muted"> {{fund.create_dt}}</p>
+        <p class="text-muted"> {{fund._id}}</p>
 </mat-card-content>
 
-<!-- <mat-card-actions class="fund-actions">
+<mat-divider></mat-divider>
+<mat-card-actions class="fund-actions">
     <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/fund', fund.id]">VIEW</button>
-</mat-card-actions> -->
+</mat-card-actions> 
 
 </div>

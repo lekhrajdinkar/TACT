@@ -24,7 +24,7 @@ export class FundListComponent implements OnInit {
     //1. Get Full response
      this.srv.getAllFunds(1)
     .subscribe(
-      (data) => { setTimeout( ()=> {this.funds = data.body; console.log('HTTP Response body: ',data.body) ;},3000)},
+      (data) => { setTimeout( ()=> {this.funds = data.body; console.log('HTTP Response body: ',data.body) ;},1000)},
       (err) => {console.log(err);}
     );
     
