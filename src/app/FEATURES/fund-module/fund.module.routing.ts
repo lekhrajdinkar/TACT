@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FundListComponent } from './fund-list/fund-list.component';
 import { FundAddComponent } from './fund-add/fund-add.component';
+import { FundDetailComponent } from './fund-detail/fund-detail.component';
 
 
 const routes: Routes = [
+  { path: 'fund-module/get-all/:id', component: FundDetailComponent },
   { path: 'fund-module/get-all', component: FundListComponent },
   { path: 'fund-module/add-fund', component: FundAddComponent }
 ];
