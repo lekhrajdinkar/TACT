@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fund } from '../fund.model';
 import { FundService } from '../fund.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-fund-list',
@@ -11,24 +12,40 @@ import { ActivatedRoute } from '@angular/router';
 export class FundListComponent implements OnInit {
 
   funds: Fund[];
+  currentPage: number = 1;
+  totalPage : number = 10; //will fix it
+  
 
   constructor(
     private route: ActivatedRoute, 
     private srv: FundService) { }
 
   ngOnInit() {
-    const funds$ = this.srv.getAllFunds()
+     this.srv.getAllFunds(1)
     .subscribe(
       (data) => {this.funds = data;},
       (err) => {console.log(err);}
     );
-    //console.log(funds$);
   }
 
-}
 
-// [
-//   {abbr: 'abbr11', num : '11000011'},
-//   {abbr: 'abbr13', num : '11000013'}, 
-//   {abbr: 'abbr12', num : '11000012'}
-// ]
+  previous() {
+    if (this.currentPage > 1) {
+      this.currentPage = this.currentPage - 1;
+    }
+    this.srv.getAllFunds(this.currentPage).subscribe(
+      (data) => {this.funds = data;},
+      (err) => {console.log(err);}
+    );
+  }
+
+  next() {
+    if (this.currentPage < this.totalPage) {
+      this.currentPage = this.currentPage + 1;
+    }
+    this.srv.getAllFunds(this.currentPage).subscribe(
+      (data) => {this.funds = data;},
+      (err) => {console.log(err);}
+    );
+  }
+}

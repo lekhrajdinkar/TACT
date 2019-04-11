@@ -9,8 +9,8 @@ export class FundService{
 
   constructor(private http:HttpClient, private authSrv : AuthService) { }
 
-  getAllFunds(){
-    return this.http.get<Fund[]>('https://tact-nodejs.herokuapp.com/tact2/get-all-funds');
+  getAllFunds(pageNumber?: number){
+    return this.http.get<Fund[]>(`https://tact-nodejs.herokuapp.com/tact2/get-all-funds?pageNumber=${pageNumber}`);
     //return this.http.get('localhost:5000/tact2/get-all-funds');
     }
 

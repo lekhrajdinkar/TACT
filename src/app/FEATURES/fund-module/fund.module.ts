@@ -10,6 +10,7 @@ import { FundAddComponent } from './fund-add/fund-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FundDetailComponent } from './fund-detail/fund-detail.component';
 import { FundModuleRouting } from './fund.module.routing';
+import { TactCommonModule } from 'src/app/common/common.module';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { FundModuleRouting } from './fund.module.routing';
     RouterModule,
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
-    FundModuleRouting
+    FundModuleRouting,
+    TactCommonModule
+    
   ],
   providers: [FundService]
 })

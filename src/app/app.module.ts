@@ -11,9 +11,8 @@ import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenan
 import { ReportComponent } from './home/report/report.component';
 import { HomeComponent } from './home/home/home.component';
 import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.component';
-import { FundModule } from './FEATURES/fund-module/fund.module';
-import { ErrorComponent } from './error/error.component'; //eagerly loaded module
-
+import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loaded module
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import { ErrorComponent } from './error/error.component'; //eagerly loaded modul
     ReportComponent,
     HomeComponent,
     FundEditComponent,
-    ErrorComponent
+    ErrorComponent,
+    //PaginatorComponent
   ],
   imports: [
     BrowserModule,
