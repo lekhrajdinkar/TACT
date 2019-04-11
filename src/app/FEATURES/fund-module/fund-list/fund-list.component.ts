@@ -13,6 +13,7 @@ export class FundListComponent implements OnInit {
 
   funds: Fund[];
   currentPage: number = 1;
+  pageSize: number = 5;
   totalPage : number = 10; //will fix it
   
 
@@ -22,7 +23,7 @@ export class FundListComponent implements OnInit {
 
   ngOnInit() {
     //1. Get Full response
-     this.srv.getAllFunds(1)
+     this.srv.getAllFunds(1, this.pageSize)
     .subscribe(
       (data) => { setTimeout( ()=> {this.funds = data.body; console.log('HTTP Response body: ',data.body) ;},1000)},
       (err) => {console.log(err);}
@@ -33,21 +34,27 @@ export class FundListComponent implements OnInit {
   }
 
 
-  previous() {
+  previous(pageSize : String) {
     if (this.currentPage > 1) {
       this.currentPage = this.currentPage - 1;
     }
-    this.srv.getAllFunds1(this.currentPage).subscribe(
+    if(pageSize){
+      this.pageSize = +pageSize;
+    }
+    this.srv.getAllFunds1(this.currentPage, this.pageSize).subscribe(
       (data) => {this.funds = data; console.log('HTTP Response body: ',data) ;},
       (err) => {console.log(err);}
     );
   }
 
-  next() {
+  next(pageSize : String) {
     if (this.currentPage < this.totalPage) {
       this.currentPage = this.currentPage + 1;
     }
-    this.srv.getAllFunds1(this.currentPage).subscribe(
+    if(pageSize){
+      this.pageSize = +pageSize;
+    }
+    this.srv.getAllFunds1(this.currentPage, this.pageSize).subscribe(
       (data) => {this.funds = data;},
       (err) => {console.log(err);}
     );

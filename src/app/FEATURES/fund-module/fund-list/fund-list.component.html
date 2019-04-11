@@ -10,12 +10,29 @@
     </mat-card>
   </div>
   <mat-divider></mat-divider>
-    <div class="fund-card row ">
-      <div class="col-6 d-flex justify-content-around">
-        <button mat-raised-button color="primary" class="align-left" (click)='previous()'>Previous</button>
-        <button mat-raised-button color="primary" class="align-right" (click)='next()'>Next</button>
-      </div>
-    </div>
+  
+        
+        
+    
+
+        <!-- paginator -->
+  
+
+            <div class="d-flex justify-content-around">
+
+                  <mat-form-field><input  type="text" placeholder="page Size" value="5"  #pageSize></mat-form-field>
+                  
+                  <mat-form-field>
+                      <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)'>Previous</button>
+                  </mat-form-field>
+                  
+                  <mat-form-field>
+                      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)'>Next</button>
+                  </mat-form-field>
+
+            
+
+ 
 
 </div>
 </div>

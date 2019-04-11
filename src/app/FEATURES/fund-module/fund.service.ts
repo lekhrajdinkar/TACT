@@ -17,10 +17,10 @@ export class FundService{
   constructor(private http:HttpClient, private authSrv : AuthService) { }
 
   //1. Get full response
-  getAllFunds(pageNumber?: number) : Observable<HttpResponse<Fund[]>>
+  getAllFunds(pageNumber: number, pageSize: number) : Observable<HttpResponse<Fund[]>>
   {
    return this.http.get<Fund[]>(
-    `${this.host}/tact2/get-all-funds?pageNumber=${pageNumber}`
+    `${this.host}/tact2/get-all-funds?pageNumber=${pageNumber}&pageSize=${pageSize}`
       ,{
         observe: 'response', 
         responseType:'json',
@@ -37,10 +37,10 @@ export class FundService{
   }
 
   //Get body as reponse
-  getAllFunds1(pageNumber?: number) : Observable<Fund[]>
+  getAllFunds1(pageNumber: number, pageSize: number) : Observable<Fund[]>
   {
     return this.http.get<Fund[]>(
-      `${this.host}/tact2/get-all-funds?pageNumber=${pageNumber}`
+      `${this.host}/tact2/get-all-funds?pageNumber=${pageNumber}&pageSize=${pageSize}`
       ,{
         observe: 'body', //default
         responseType : 'json', //default

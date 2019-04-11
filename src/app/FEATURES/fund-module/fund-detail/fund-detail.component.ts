@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnderlyingFund } from '../underlyingFund.model';
 
 @Component({
   selector: 'app-fund-detail',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FundDetailComponent implements OnInit {
 
+  underlyingFunds : UnderlyingFund[];
   constructor() { }
 
   ngOnInit() {

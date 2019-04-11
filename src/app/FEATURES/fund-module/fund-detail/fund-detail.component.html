@@ -1,3 +1,26 @@
-<p>
-  fund-detail works!
-</p>
+<div class="fund">
+
+    <mat-card-header>
+        <mat-card-title>
+            <p class="badge badge-warning text-wrap"> Fund Number : {{fund.num}}</p>
+        </mat-card-title>
+    </mat-card-header>
+    
+    <!-- <img mat-card-image [src]="course.iconUrl"> -->
+    
+    <mat-card-content>
+            <p class="text-muted"> Abbreviation: {{fund.abbr}}</p>
+            <p class="text-muted"> {{fund.created_by}}</p>
+            <p class="text-muted"> {{fund.create_dt}}</p>
+            <p class="text-muted"> {{fund._id}}</p>
+
+            {{underlyingFunds}}
+    </mat-card-content>
+    
+    <mat-divider></mat-divider>
+    <mat-card-actions class="fund-actions">
+        <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/fund-module/get-all']">back</button>
+    </mat-card-actions> 
+    
+    </div>
+    
