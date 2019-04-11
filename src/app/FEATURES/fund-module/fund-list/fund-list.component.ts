@@ -28,7 +28,7 @@ export class FundListComponent implements OnInit {
       (err) => {console.log(err);}
     );
     
-    //this.srv.getAllFunds3_play();
+    this.srv.getAllFunds3_play();
   }
 
 

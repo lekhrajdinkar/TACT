@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpResponse, HttpParams, HttpErrorResponse, HttpRequest } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { Fund } from './fund.model';
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
 import { map, tap, catchError } from 'rxjs/operators';
@@ -11,8 +11,8 @@ import { map, tap, catchError } from 'rxjs/operators';
 @Injectable()
 export class FundService{
 
-  host = 'https://tact-nodejs.herokuapp.com' ;
-  //host = 'http://localhost:5000' ;
+  //host = 'https://tact-nodejs.herokuapp.com' ;
+  host = 'http://localhost:5000' ;
 
   constructor(private http:HttpClient, private authSrv : AuthService) { }
 
@@ -24,6 +24,7 @@ export class FundService{
       ,{
         observe: 'response', 
         responseType:'json',
+        //reportProgress :  true,
         headers: new HttpHeaders({
               'Content-Type':  'application/json',
               'Authorization' : 'Bearer '+this.getToken() })
@@ -41,11 +42,11 @@ export class FundService{
     return this.http.get<Fund[]>(
       `${this.host}/tact2/get-all-funds?pageNumber=${pageNumber}`
       ,{
-        observe: 'body', 
-        //params: new HttpParams().set(),
-        headers: new HttpHeaders({
-              'Content-Type':  'application/json',
-              'Authorization' : 'Bearer '+this.getToken() })
+        observe: 'body', //default
+        responseType : 'json', //default
+        //reportProgress :  true,
+        params: new HttpParams().set('Authorization' , 'Bearer '+this.getToken() ),
+        headers: new HttpHeaders({'Content-Type':  'application/json'})
        }
     ).pipe(
       tap((r)=> {console.log(r)}),
@@ -54,26 +55,31 @@ export class FundService{
     
   }
 
-  //
-//   getAllFunds3_play(pageNumber?: number) : Observable<ArrayBuffer>
-//   {
-//     return this.http.get<String>(
-//       `this.url/tact2/get-all-funds?pageNumber=${pageNumber}`
-//       ,{
-//         observe: 'response', 
-//         responseType : 'arraybuffer',
-//         headers: new HttpHeaders({
-//               'Content-Type':  'application/json',
-//               'Authorization' : 'Bearer '+this.getToken() })
-//        }
-//     ).pipe(
-//       tap((r)=> {console.log(r)}),
-//       //tap((r)=> {return r.body ;}),
-//     ).subscribe(
-//       (r) => {},
-//       (err) => {}
-// );
-// }
+
+  getAllFunds3_play(pageNumber?: number)
+  {
+    //Another way of creating Http
+    const req = new HttpRequest('GET', `${this.host}/tact2/get-latest-fund`, {reportProgress :  true});
+    this.http.request(req).subscribe(
+      (r) => {console.log('PLAY subscribe 2: ',r);},
+      (err) => {console.error(err)}
+    );
+
+   this.http.get(
+      `${this.host}/tact2/get-all-funds?pageNumber=${pageNumber}`
+      ,{
+        observe: 'body', //response, body, event
+        responseType : 'blob', //arraybuffer, text,json, blob
+        params: new HttpParams().set('Authorization' , 'Bearer '+this.getToken() ),
+        reportProgress :  true
+       }
+    ).pipe(
+      tap((r)=> {console.log('PLAY tap: ',r)}),
+      catchError(this.handleError)
+      //tap((r)=> {return r.body ;}),
+    )
+   .subscribe((r) => {console.log('PLAY subscribe: ',r);},(err) => {console.error(err)});
+}
 //case 1 - arra
   
 
@@ -98,5 +104,21 @@ export class FundService{
       
        return token;
     }
+
+    private handleError(error: HttpErrorResponse) {
+      if (error.error instanceof ErrorEvent) {
+        // A client-side or network error occurred. Handle it accordingly.
+        console.error('An error occurred:', error.error.message);
+      } else {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        console.error(
+          `Backend returned code ${error.status}, ` +
+          `body was: ${error.error}`);
+      }
+      // return an observable with a user-facing error message
+      return throwError(
+        'Something bad happened; please try again later.');
+    };
 
 }
