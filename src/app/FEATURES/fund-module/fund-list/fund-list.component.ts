@@ -21,11 +21,14 @@ export class FundListComponent implements OnInit {
     private srv: FundService) { }
 
   ngOnInit() {
+    //1. Get Full response
      this.srv.getAllFunds(1)
     .subscribe(
-      (data) => {this.funds = data;},
+      (data) => { this.funds = data.body; console.log('HTTP Response body: ',data.body) ;},
       (err) => {console.log(err);}
     );
+    
+    //this.srv.getAllFunds3_play();
   }
 
 
@@ -33,8 +36,8 @@ export class FundListComponent implements OnInit {
     if (this.currentPage > 1) {
       this.currentPage = this.currentPage - 1;
     }
-    this.srv.getAllFunds(this.currentPage).subscribe(
-      (data) => {this.funds = data;},
+    this.srv.getAllFunds1(this.currentPage).subscribe(
+      (data) => {this.funds = data; console.log('HTTP Response body: ',data) ;},
       (err) => {console.log(err);}
     );
   }
@@ -43,7 +46,7 @@ export class FundListComponent implements OnInit {
     if (this.currentPage < this.totalPage) {
       this.currentPage = this.currentPage + 1;
     }
-    this.srv.getAllFunds(this.currentPage).subscribe(
+    this.srv.getAllFunds1(this.currentPage).subscribe(
       (data) => {this.funds = data;},
       (err) => {console.log(err);}
     );

@@ -29,7 +29,9 @@ export class AuthService {
       headers: new HttpHeaders({'Content-Type':  'application/json'})
     };
 
-     this.http.post('https://tact-nodejs.herokuapp.com/tact2/login',{initial,password} ,httpOptions).subscribe(
+    const url1 = 'https://tact-nodejs.herokuapp.com/tact2/login' ;
+    const url2 = 'http://localhost:5000/tact2/login' ;
+     this.http.post(url2,{initial,password} ,httpOptions).subscribe(
       (data: AuthResponse) => {
         this.authResp = data;
         this.subject.next({username : data.initial});

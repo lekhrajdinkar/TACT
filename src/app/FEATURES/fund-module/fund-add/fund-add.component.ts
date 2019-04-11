@@ -21,7 +21,7 @@ export class FundAddComponent implements OnInit {
     this.srv.addFund({abbr,num})
     .subscribe(
       (data) => {console.log(data);alert('Fund Added Successfully..');},
-      (err) => {console.log(err);alert("please login first");}
+      (err) => {console.log(err);alert("Error Occured. Check console logs");}
     );
 
   }
