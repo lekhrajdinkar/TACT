@@ -10,10 +10,15 @@ import { Fund } from '../fund.model';
 export class FundComponent implements OnInit {
 
   @Input('fund') fund:Fund;
+  @Input() index;
 
-  constructor() {}
+  constructor() {
+    
+  }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.index += 1;
+  }
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit : FundComponent');

@@ -1,6 +1,6 @@
-<mat-card *ngFor="let fund of funds" class="fund-card mat-elevation-z10">
+<mat-card *ngFor="let fund of funds; index as i" class="fund-card mat-elevation-z10">
 
-    <fund [fund]=fund></fund>
+    <fund [fund]=fund [index]=i></fund>
 
 </mat-card>
 
