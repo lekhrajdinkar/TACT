@@ -13,7 +13,7 @@ export class FundListComponent implements OnInit {
 
   funds: Fund[];
   currentPage: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 6;
   totalPage : number = 10; //will fix it
   
 
@@ -22,6 +22,7 @@ export class FundListComponent implements OnInit {
     private srv: FundService) { }
 
   ngOnInit() {
+    console.log('FundListComponent - init')
     //1. Get Full response
      this.srv.getAllFunds(1, this.pageSize)
     .subscribe(

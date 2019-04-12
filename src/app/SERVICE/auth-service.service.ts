@@ -19,8 +19,8 @@ export class AuthService {
 
   authResp :AuthResponse;
 
-  //const host = 'https://tact-nodejs.herokuapp.com' ;
-  host = 'http://localhost:5000' ;
+  host = 'https://tact-nodejs.herokuapp.com' ;
+  //host = 'http://localhost:5000' ;
  
   constructor(private router:Router, private http : HttpClient) { }
 
@@ -57,20 +57,23 @@ export class AuthService {
   isAuthorized(){
     if (this.isToken()){
        this.http.get(
-        `${this.host}/auth-status`
+        `${this.host}/tact2/auth-status`
 
         ,{
           observe: 'response', 
           headers: new HttpHeaders({
-                'Content-Type':  'application/json',
                 'Authorization' : 'Bearer '+this.authResp.jwt })
          }
-         ).subscribe(
+         )
+         .subscribe(
            (data )=> { console.log(" auth gauad : AUTHORIZED ");return true}, // return promise<boolean>
-           (err)=> { console.log(" auth gauad : NOT AUTHORIZED "); return false});
+           (err)=> { console.log(" auth gauad : NOT AUTHORIZED "); return false}
+          );
     }
-    else 
-      return false; //return boolean
+    else {
+      console.error ('JWT token is not valid or not been Set. please login first');
+      return false; //return boolean}
+    }
 
   }
  

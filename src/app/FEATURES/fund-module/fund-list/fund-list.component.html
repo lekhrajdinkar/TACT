@@ -5,28 +5,21 @@
 
   <div *ngIf='funds' class="col col-12 ">
     <div class="d-flex flex-wrap justify-content-around">
-    <mat-card *ngFor="let fund of funds; index as i" class="fund-card mat-elevation-z10">
-      <fund [fund]=fund [index]=i></fund>
-    </mat-card>
+      <mat-card *ngFor="let fund of funds; index as i" class="fund-card mat-elevation-z10">
+        <fund [fund]=fund [index]=i></fund>
+      </mat-card>
+    </div>
+    <mat-divider></mat-divider>
+
+    <!-- paginator -->
+    <div class="d-flex justify-content-around m-4 bg-dark text-white">
+
+      <input class=" m-4 d-inline-block" type="text" placeholder="page Size" value="5" #pageSize>
+      <p class=" m-4 d-inline-block text-muted text-white"> Current Page : {{currentPage}}</p>
+      <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)'>Previous</button>
+      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)'>Next</button>
+
+    </div>
   </div>
-  <mat-divider></mat-divider>
-  
-  <!-- paginator -->
-  
 
-            <div class="d-flex justify-content-around">
-
-                  <mat-form-field><input  class=" m -4 d-inline-block" type="text" placeholder="page Size" value="5"  #pageSize></mat-form-field>
-                  
-                  <mat-form-field>
-                      <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)'>Previous</button>
-                  </mat-form-field>
-                  
-                  <mat-form-field>
-                      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)'>Next</button>
-                  </mat-form-field>
-
-</div>
-</div>
-
-<mat-spinner *ngIf='!funds' class="fund-card"></mat-spinner>
+  <mat-spinner *ngIf='!funds' class="fund-card"></mat-spinner>

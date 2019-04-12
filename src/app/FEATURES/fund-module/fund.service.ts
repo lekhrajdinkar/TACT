@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { Fund } from './fund.model';
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
 import { map, tap, catchError, shareReplay } from 'rxjs/operators';
+import { UnderlyingFund } from './underlyingFund.model';
 
 //============================
 // Play with HttpClient Here
@@ -99,6 +100,7 @@ export class FundService{
   
 
 
+
     addFund(fund: Fund){
       return this.http.post(
         `${this.host}/tact2/add-fund`
@@ -112,6 +114,7 @@ export class FundService{
          );
     }
 
+    //Get Token
     getToken(){
       let token = '';
       if(this.authSrv.authResp){
@@ -120,6 +123,7 @@ export class FundService{
        return token;
     }
 
+    //Streamlined Error Handling - HttpClient
     private handleError(error: HttpErrorResponse) {
       if (error.error instanceof ErrorEvent) {
         // A client-side or network error occurred. Handle it accordingly.
@@ -135,5 +139,23 @@ export class FundService{
       return throwError(
         'Something bad happened; please try again later.');
     };
+
+    //Get Underlying Funds
+    getUunderLyingFunds( _id : String){
+      return this.http.get<UnderlyingFund[]>(
+        `${this.host}/tact2/get-uf-by-fof/${_id}`
+          ,{
+            observe: 'body', 
+            responseType:'json',
+            //reportProgress :  true,
+            headers: new HttpHeaders({
+                  'Content-Type':  'application/json',
+                  'Authorization' : 'Bearer '+this.getToken() })
+           }
+        )
+        .pipe(
+          tap((r)=> {console.log(r)})
+        )
+    }
 
 }
