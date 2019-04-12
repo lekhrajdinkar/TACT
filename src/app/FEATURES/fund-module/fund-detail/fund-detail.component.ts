@@ -10,16 +10,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FundDetailComponent implements OnInit {
 
+  fof_num : String;
   underlyingFunds : UnderlyingFund[];
+  noUFflag = false;
   constructor(private fundSrv : FundService, private route : ActivatedRoute) { }
 
   ngOnInit() {
+    this.fof_num = this.route.snapshot.queryParams['fof_num']
      //1. Get Full response
-     this.fundSrv.getUunderLyingFunds( this.route.snapshot.data['_id'] )
+     this.fundSrv.getUunderLyingFunds( this.route.snapshot.params['_id'] )
     .subscribe(
       (data) => { 
-         setTimeout( ()=> {this.underlyingFunds = data;
-         console.log('HTTP Response body: ',data) ;},1000)},
+         setTimeout( ()=> {
+           this.underlyingFunds = data;
+           if(data.length == 0){ this.noUFflag = true;}
+          console.log('HTTP Response body: ',data) ;},1000)},
       (err) => {console.log(err);}
     );
   }

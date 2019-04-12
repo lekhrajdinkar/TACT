@@ -8,8 +8,8 @@ import { AuthGaurdGuard } from 'src/app/auth-gaurd.guard';
 
 
 const routes: Routes = [
-  { path: 'fund-module/get-all/:_id', component: FundDetailComponent, canActivate : [AuthGaurdGuard] },
-  { path: 'fund-module/get-all', component: FundListComponent, canActivate : [AuthGaurdGuard]},
+  { path: 'fund-module/get-all/:_id', component: FundDetailComponent},
+  { path: 'fund-module/get-all', component: FundListComponent},
   { path: 'fund-module/add-fund', component: FundAddComponent, canActivate : [AuthGaurdGuard] }
 ];
 

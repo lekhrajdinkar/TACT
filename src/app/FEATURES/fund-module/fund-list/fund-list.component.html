@@ -14,7 +14,7 @@
     <!-- paginator -->
     <div class="d-flex justify-content-around m-4 bg-dark text-white">
 
-      <input class=" m-4 d-inline-block" type="text" placeholder="page Size" value="5" #pageSize>
+      <input class=" m-4 d-inline-block" type="text" placeholder="page Size" value="6" #pageSize>
       <p class=" m-4 d-inline-block text-muted text-white"> Current Page : {{currentPage}}</p>
       <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)'>Previous</button>
       <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)'>Next</button>
