@@ -19,6 +19,8 @@ export class AuthService {
 
   authResp :AuthResponse;
 
+  //const host = 'https://tact-nodejs.herokuapp.com' ;
+  host = 'http://localhost:5000' ;
  
   constructor(private router:Router, private http : HttpClient) { }
 
@@ -29,9 +31,9 @@ export class AuthService {
       headers: new HttpHeaders({'Content-Type':  'application/json'})
     };
 
-    const url1 = 'https://tact-nodejs.herokuapp.com/tact2/login' ;
-    const url2 = 'http://localhost:5000/tact2/login' ;
-     this.http.post(url1,{initial,password} ,httpOptions).subscribe(
+    const url= `${this.host}/tact2/login` ;
+   
+     this.http.post(url,{initial,password} ,httpOptions).subscribe(
       (data: AuthResponse) => {
         this.authResp = data;
         this.subject.next({username : data.initial});
@@ -48,4 +50,28 @@ export class AuthService {
     this.subject.next(UNKNOWN_USER);
     this.router.navigate(["login"]);
   }
+
+  //Auth Gaurd
+  isToken(){ if(this.authResp) return  true; else return false;}
+
+  isAuthorized(){
+    if (this.isToken()){
+       this.http.get(
+        `${this.host}/auth-status`
+
+        ,{
+          observe: 'response', 
+          headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Authorization' : 'Bearer '+this.authResp.jwt })
+         }
+         ).subscribe(
+           (data )=> { console.log(" auth gauad : AUTHORIZED ");return true}, // return promise<boolean>
+           (err)=> { console.log(" auth gauad : NOT AUTHORIZED "); return false});
+    }
+    else 
+      return false; //return boolean
+
+  }
+ 
 }
