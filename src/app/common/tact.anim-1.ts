@@ -81,5 +81,15 @@ export const click_trigger = trigger('clickTrigger', [
     ])
   ])
 
+  //fadeout
+  export const routingAminTriggerFadeOut = trigger('routingAminTriggerFadeOut', [
+    transition(':enter', 
+    [
+      style({opacity: 0}),
+      animate('1s')
+    ])
+
+  ])
+
   
 

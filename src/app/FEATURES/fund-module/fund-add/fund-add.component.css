@@ -8,4 +8,9 @@
     flex-direction: column;
   }
 
+  /* Otherwise animation wount wrok - route anim */
+  :host{
+    display: block
+  }
+
  
