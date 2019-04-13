@@ -24,7 +24,9 @@
 </div>
 
 <!-- <mat-progress-bar mode="indeterminate" *ngIf='!underlyingFunds' ></mat-progress-bar> -->
-<mat-spinner *ngIf='!underlyingFunds' class="fund-card"></mat-spinner>
+<!-- <mat-spinner *ngIf='!underlyingFunds' class="fund-card"></mat-spinner> -->
+
+<app-progress-bar *ngIf='!underlyingFunds' class="progress-comp"></app-progress-bar>
 
 
     
