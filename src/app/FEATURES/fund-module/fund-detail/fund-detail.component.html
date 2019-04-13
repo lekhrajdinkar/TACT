@@ -6,8 +6,8 @@
     <mat-tab-group>
         <mat-tab [label]="[uf.num]" *ngFor="let uf of underlyingFunds"> 
             <div>
-                <table class="table table-dark">
-                    <tr *ngFor="let e of uf | keyvalue">
+                <table class="table table-dark m-4">
+                    <tr *ngFor="let e of (uf | keyvalue) ; even as isEven">
                         <td class="text text-left">{{e.key| uppercase}}</td> <td class="text text-left">{{e.value}}</td>
                     </tr>
                 </table>

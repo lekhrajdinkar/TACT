@@ -6,7 +6,7 @@
   <div *ngIf='funds' class="col col-12 ">
     <div class="d-flex flex-wrap justify-content-around">
       <mat-card *ngFor="let fund of funds; index as i" class="fund-card mat-elevation-z10">
-        <fund [fund]=fund [index]=i></fund>
+        <div id="temp_id1"> <fund [fund]=fund [index]=i></fund> </div>
       </mat-card>
     </div>
     <mat-divider></mat-divider>

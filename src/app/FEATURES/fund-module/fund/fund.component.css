@@ -3,3 +3,20 @@
     max-width: 390px;
     margin: 0 auto;
 }
+
+:host{
+    display: block;
+    border: 1px solid black;
+    /* box-shadow: 10px 10px 10px grey; */
+}
+
+:host(.activate){
+    display: block;
+    border: 2px solid rgb(215, 233, 55);
+    box-shadow: 5px 5px 5px rgb(215, 233, 55);
+}
+
+:host-context(#temp_id1) /deep/ {
+    text-align: center;
+    box-shadow: 5px 5px 5px rgb(123, 214, 146);
+}

@@ -11,15 +11,15 @@
 
 <mat-card-content>
         <p class="text-muted"> Abbreviation: {{fund.abbr}}</p>
-        <p class="text-muted"> {{fund.created_by}}</p>
-        <p class="text-muted"> {{fund.create_dt}}</p>
-        <p class="text-muted"> {{fund._id}}</p>
+        <p class="text-muted"> created by: {{fund.created_by}}</p>
+        <p class="text-muted"> created on : {{fund.create_dt}}</p>
+        <p class="text-muted"> _id : {{fund._id}}</p>
 </mat-card-content>
 
 <mat-divider></mat-divider>
 <mat-card-actions class="fund-actions">
     <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/fund-module/get-all', fund._id]" 
-    >VIEW</button>
+    ><h6>VIEW</h6></button>
 </mat-card-actions> 
 
 </div>
