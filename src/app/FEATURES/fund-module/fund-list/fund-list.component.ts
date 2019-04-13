@@ -3,14 +3,14 @@ import { Fund } from '../fund.model';
 import { FundService } from '../fund.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { click_trigger , div_trigger, highlightPageNum} from 'src/app/common/tact.anim-1';
+import { click_trigger , div_trigger, highlightPageNum, compBump} from 'src/app/common/tact.anim-1';
 import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fund-list',
   templateUrl: './fund-list.component.html',
   styleUrls: ['./fund-list.component.css'],
-  animations : [click_trigger, div_trigger, highlightPageNum]
+  animations : [click_trigger, div_trigger, highlightPageNum, compBump]
 })
 export class FundListComponent implements OnInit {
 

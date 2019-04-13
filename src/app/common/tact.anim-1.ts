@@ -26,17 +26,27 @@ export const click_trigger = trigger('clickTrigger', [
   ])
  
   export const highlightPageNum = trigger('highlightPageNum', [
-    // ...
-    state('selected', style({
-      border: '2px solid blue',
-      backgroundColor: 'rgb(216, 238, 238)',
-      padding : '5px'
-    })),
+    //state
     state('unselected', style({
       border: '1px solid blue',
       backgroundColor: 'white',
-      padding : '6px'
-    }))
+      padding : '6px',
+      transform : 'scale(1)'
+    })),
+    state('selected', style({
+      border: '2px solid blue',
+      backgroundColor: 'rgb(216, 238, 238)',
+      padding : '5px',
+      
+    })),
+   //transition
+    transition('unselected => selected', [
+      animate('0.2s', style({transform : 'translateY(20px) scale(1.5)'})),
+      animate('0.2s', style({backgroundColor: 'rgb(231, 228, 210)', transform : 'translateX(-20px) scale(2)'})),
+      animate('0.2s', style({transform : 'translateY(-20px) scale(1.5)'})),
+      animate('0.2s', style({backgroundColor: 'rgb(231, 228, 210)', transform : 'translateX(20px) scale(2)'})),
+      animate('1s', style({transform : 'scale(5)'}))
+    ])
   ])
 
   export const div_trigger = trigger('divTrigger', [
@@ -55,6 +65,20 @@ export const click_trigger = trigger('clickTrigger', [
     transition('clicked => default', [
       animate('0.5s')
     ]),
+  ])
+
+  //Comp
+  export const compBump = trigger('compBump', [
+    // ...
+    state('default', style({
+    
+    })),
+    state('bump', style({
+    
+    })),
+    transition('default => bump', [
+      animate('0.1s', style({transform :  'scale(1.2)'}))
+    ])
   ])
 
   

@@ -13,7 +13,7 @@
   }
 
   #temp_id1{
-    box-shadow: 5px 5px 10px rgb(222, 231, 210)
+    box-shadow: 5px 5px 10px rgb(231, 228, 210)
   }
 
   .ng-class-1{
@@ -36,7 +36,7 @@
     }
     75%{
           opacity: 1;
-          transform:  translateY(0) scale(2)
+          transform:  translateY(0) scale(1.2) 
     }
     100%{
       opacity: 1;

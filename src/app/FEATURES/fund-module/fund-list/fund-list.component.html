@@ -24,6 +24,7 @@
           (click)="onSimpleClick()"
           [ngStyle]= "{'backgroundColor' : fund.isClicked ? 'rgb(222, 231, 210)' : 'white'}" 
           [ngClass]="{'ng-class-1' : fund.isClicked}"
+          [@compBump]="fund.isClicked ? 'bump' : 'default' "
           ></fund> 
         </div>
       </mat-card>
