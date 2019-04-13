@@ -91,7 +91,7 @@ export const click_trigger = trigger('clickTrigger', [
 
   ])
 
-  //
+  //Enter Left
   export const routingAminTriggerEnterLeft = trigger('routingAminTriggerEnterLeft', [
     transition(':enter', 
     [
@@ -103,6 +103,22 @@ export const click_trigger = trigger('clickTrigger', [
     [
       style({transform: 'translateX(100%)'}),
       animate('0.1s')
+    ])
+
+  ])
+
+  //Enter Left
+  export const routingAminTriggerGoUp= trigger('routingAminTriggerGoUp', [
+    transition(':enter', 
+    [
+      style({transform: 'translateY(-100%)'}),
+      animate('0.5s')
+    ]),
+
+    transition(':leave', 
+    [
+      style({transform: 'translateY(100%)'}),
+      animate('0.5s')
     ])
 
   ])

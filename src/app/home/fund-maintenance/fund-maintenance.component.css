@@ -19,4 +19,8 @@ table {
     overflow: hidden;
     display: flex;
   }
+
+  :host{
+    display: block;
+  }
   
