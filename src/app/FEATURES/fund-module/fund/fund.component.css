@@ -20,3 +20,14 @@
     text-align: center;
     box-shadow: 5px 5px 5px rgb(123, 214, 146);
 }
+
+.view-button{
+    width : 50%; background-color: rgb(203, 240, 70);
+    transition: all 1s;
+    text-align: center
+  }
+
+  .view-button:hover{
+    width : 70%; 
+    background-color: rgb(151, 172, 79);
+  }
