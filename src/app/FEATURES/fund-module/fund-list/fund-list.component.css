@@ -21,4 +21,27 @@
     display: inline-block;
   }
 
+  .css-anim-1{
+    animation: moved 1s;
+  }
+
+  @keyframes moved {
+    0%{
+          opacity: 0;
+          transform: translateY(0) scale(1)
+    }
+    50%{
+          opacity: 0.5 ;
+          transform: translateY(20px) scale(1)
+    }
+    75%{
+          opacity: 1;
+          transform:  translateY(0) scale(2)
+    }
+    100%{
+      opacity: 1;
+      transform:  scale(1)
+    }
+  }
+
  

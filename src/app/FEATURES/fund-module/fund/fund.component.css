@@ -24,10 +24,30 @@
 .view-button{
     width : 50%; background-color: rgb(203, 240, 70);
     transition: all 1s;
+    animation: moved 2s;
     text-align: center
   }
 
   .view-button:hover{
     width : 70%; 
     background-color: rgb(151, 172, 79);
+  }
+
+  @keyframes moved {
+      0%{
+            opacity: 0;
+            transform: translateX(0) scale(1)
+      }
+      50%{
+            opacity: 0.5 ;
+            transform: translateX(20px) scale(1)
+      }
+      75%{
+            opacity: 1;
+            transform:  translateX(0) scale(1.5)
+      }
+      100%{
+        opacity: 1;
+        transform:  scale(1)
+  }
   }
