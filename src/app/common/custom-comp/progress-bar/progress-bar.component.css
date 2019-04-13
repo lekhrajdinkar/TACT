@@ -1,0 +1,23 @@
+.loading-bar{
+    height: 20px;
+    width: 300px;
+    margin: 1rem;
+    border: 2px solid black;
+}
+
+.loading-progress{
+    height: 100%;
+    width: 0px;
+    background-color: aqua;
+    animation: progress-1 2s infinite ;
+}
+
+@keyframes progress-1 {
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 296px;
+    }
+}

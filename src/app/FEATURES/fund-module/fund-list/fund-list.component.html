@@ -33,7 +33,9 @@
     </div>
   </div>
 
-  <mat-spinner *ngIf='!funds' class="fund-card"></mat-spinner>
+  <!-- <mat-spinner *ngIf='!funds' class="fund-card"></mat-spinner> -->
+
+  <app-progress-bar *ngIf='!funds' class="fund-card"></app-progress-bar>
 
   <!-- 
 
