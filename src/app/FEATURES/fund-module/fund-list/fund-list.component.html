@@ -3,6 +3,8 @@
     <fund-add></fund-add>
   </div>
 
+  <mat-divider></mat-divider>
+  
   <div *ngIf='funds' class="col col-12 ">
     <div class="d-flex flex-wrap justify-content-around">
       <mat-card *ngFor="let fund of funds; index as i" class="fund-card mat-elevation-z10">
@@ -34,7 +36,7 @@
   </div>
 
   <!-- <mat-spinner *ngIf='!funds' class="fund-card"></mat-spinner> -->
-
+  <mat-divider></mat-divider>
   <app-progress-bar *ngIf='!funds' class="fund-card"></app-progress-bar>
 
   <!-- 
