@@ -49,7 +49,7 @@
         </div>
 
       <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)' [disabled]="currentPage == 1 ? true: false ">Previous</button>
-      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)' [disabled]="currentPage == pageArray ? true: false" >Next</button>
+      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)' [disabled]="currentPage === totalPage ? true: false" >Next</button>
 
     </div>
 
