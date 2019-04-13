@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Fund } from '../fund.model';
 import { FundService } from '../fund.service';
 import { ActivatedRoute } from '@angular/router';
@@ -19,7 +19,10 @@ export class FundListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    private srv: FundService) { }
+    private srv: FundService,
+    private renderer : Renderer2) { }
+
+    doubleClickFund( element){this.renderer.setStyle(element, 'background-color','rgb(222, 231, 210)') ; }
 
   ngOnInit() {
     console.log('FundListComponent - init')
