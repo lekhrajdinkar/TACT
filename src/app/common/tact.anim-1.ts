@@ -25,6 +25,20 @@ export const click_trigger = trigger('clickTrigger', [
     ]),
   ])
  
+  export const highlightPageNum = trigger('highlightPageNum', [
+    // ...
+    state('selected', style({
+      border: '2px solid blue',
+      backgroundColor: 'rgb(216, 238, 238)',
+      padding : '5px'
+    })),
+    state('unselected', style({
+      border: '1px solid blue',
+      backgroundColor: 'white',
+      padding : '6px'
+    }))
+  ])
+
   export const div_trigger = trigger('divTrigger', [
     // ...
     state('default', style({

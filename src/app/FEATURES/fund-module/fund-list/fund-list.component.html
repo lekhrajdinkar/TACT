@@ -34,15 +34,26 @@
     <div class="d-flex justify-content-around m-4 bg-dark text-white">
 
       <input class="m-4 d-inline-block" type="text" placeholder="page Size" value="6" 
-      [ngStyle]= "{'width' : isClickedInput ? '300px' : '100px'}"  
+      [ngStyle]= "{'width' : isClickedInput ? '30px' : '40px'}"  
       (click)="isClickedInput = !isClickedInput" 
       (dblclick)="doubleClickFund(pageSize)"
       #pageSize>
-      <p class="m-4 d-inline-block text-muted text-white css-anim-1"> Current Page : {{currentPage}}</p>
-      <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)'>Previous</button>
-      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)'>Next</button>
+      
+
+      <div class="d-flex m-1 bg-light text text-dark">
+
+          <!-- <input id="currPageInp" class="m-4 d-inline-block" type="number" (input)="changePage($event)" value="currentPage"> -->
+          <span *ngFor="let i of pageArray" class="m-4 d-inline-block" [@highlightPageNum] = "currentPage == i ? 'selected' : 'unselected' ">{{i}} </span>
+          
+         
+        </div>
+
+      <button mat-raised-button color="primary" class="m-4" (click)='previous(pageSize.value)' [disabled]="currentPage == 1 ? true: false ">Previous</button>
+      <button mat-raised-button color="primary" class="m-4" (click)='next(pageSize.value)' [disabled]="currentPage == pageArray ? true: false" >Next</button>
 
     </div>
+
+    
   </div>
 
   <!-- <mat-spinner *ngIf='!funds' class="fund-card"></mat-spinner> -->

@@ -3,28 +3,32 @@ import { Fund } from '../fund.model';
 import { FundService } from '../fund.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { click_trigger , div_trigger} from 'src/app/common/tact.anim-1';
+import { click_trigger , div_trigger, highlightPageNum} from 'src/app/common/tact.anim-1';
 import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fund-list',
   templateUrl: './fund-list.component.html',
   styleUrls: ['./fund-list.component.css'],
-  animations : [click_trigger, div_trigger]
+  animations : [click_trigger, div_trigger, highlightPageNum]
 })
 export class FundListComponent implements OnInit {
 
   funds: Fund[];
+  pageArray : number[];
   currentPage: number = 1;
   pageSize: number = 6;
-  totalPage : number = 10; //will fix it
+  totalPage : number = 5; //will fix it
   //@Output() addFundCompClicked = false;
   
 
   constructor(
     private route: ActivatedRoute, 
     private srv: FundService,
-    private renderer : Renderer2) { }
+    private renderer : Renderer2) { 
+
+      this.pageArray = Array(this.totalPage).fill(0).map((x,i)=>i+1);
+    }
 
     doubleClickFund( element){this.renderer.setStyle(element, 'background-color','rgb(222, 231, 210)') ; }
 
@@ -74,6 +78,11 @@ onSimpleClick()
 {
   this.clickInfo = 'clicked';
   setTimeout(() => {this.clickInfo = 'default';},2000)
+}
+
+changePage(e){
+  this.currentPage = e.target.value;
+  console.log('current page : ' + e.target.value) ;
 }
 }
 
