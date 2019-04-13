@@ -8,4 +8,8 @@
     flex-direction: column;
   }
 
+  :host{
+    display : block;
+  }
+
   

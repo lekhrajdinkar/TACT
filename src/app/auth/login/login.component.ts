@@ -1,16 +1,19 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
+import { routingAminTriggerEnterLeft } from 'src/app/common/tact.anim-1';
 
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [routingAminTriggerEnterLeft]
 })
 export class LoginComponent implements OnInit {
 
+  @HostBinding('@routingAminTriggerEnterLeft') routingAminTriggerEnterLeft = true;
   form: FormGroup;
 
   constructor(
