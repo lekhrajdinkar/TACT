@@ -1,13 +1,16 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, Output } from '@angular/core';
 import { Fund } from '../fund.model';
 import { FundService } from '../fund.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { click_trigger , div_trigger} from 'src/app/common/tact.anim-1';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fund-list',
   templateUrl: './fund-list.component.html',
-  styleUrls: ['./fund-list.component.css']
+  styleUrls: ['./fund-list.component.css'],
+  animations : [click_trigger, div_trigger]
 })
 export class FundListComponent implements OnInit {
 
@@ -15,6 +18,7 @@ export class FundListComponent implements OnInit {
   currentPage: number = 1;
   pageSize: number = 6;
   totalPage : number = 10; //will fix it
+  //@Output() addFundCompClicked = false;
   
 
   constructor(
@@ -63,4 +67,16 @@ export class FundListComponent implements OnInit {
       (err) => {console.log(err);}
     );
   }
+
+  //=====Animation
+clickInfo = 'default' ; 
+onSimpleClick()
+{
+  this.clickInfo = 'clicked';
+  setTimeout(() => {this.clickInfo = 'default';},2000)
 }
+}
+
+
+
+ 

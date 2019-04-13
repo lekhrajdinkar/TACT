@@ -4,7 +4,7 @@ import { MaterialModule } from '../material.module';
 import { ProgressBarComponent } from './custom-comp/progress-bar/progress-bar.component';
 
 @NgModule({
-  declarations: [ProgressBarComponent],
+  declarations: [ProgressBarComponent,],
   imports: [
     CommonModule,
     MaterialModule

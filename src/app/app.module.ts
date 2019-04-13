@@ -33,6 +33,7 @@ import { ErrorComponent } from './error/error.component';
     MaterialModule,
     FundModule, //routing order matter, load it  FundModule(fund.routing.module) before AppRoutingModule ***
     AppRoutingModule,
+    BrowserAnimationsModule,
 
     
   ],

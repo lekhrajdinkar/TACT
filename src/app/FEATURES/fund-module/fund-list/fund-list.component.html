@@ -1,17 +1,27 @@
 <div class="row">
   <div class="col col-12">
-    <fund-add></fund-add>
+      <div (click)="divClicked = !divClicked"
+      [@divTrigger]="divClicked ? 'clicked' : 'default'"></div>
+
+      <!-- <div [@divTrigger]="clickInfo" class="m-2"></div> -->
+      <fund-add></fund-add>
+    <!-- <fund-add (click)="addFundCompClicked = !addFundCompClicked" 
+    [@clickTrigger]="addFundCompClicked ? 'default' : 'clicked'"></fund-add> -->
+
+    
   </div>
 
+
+
   <mat-divider></mat-divider>
-  
+
   <div *ngIf='funds' class="col col-12 ">
     <div class="d-flex flex-wrap justify-content-around">
       <mat-card *ngFor="let fund of funds; index as i" class="fund-card mat-elevation-z10">
         <div id="temp_id1"> 
           <fund [fund]=fund [index]=i 
           (click)="fund.isClicked = !fund.isClicked"
-          
+          (click)="onSimpleClick()"
           [ngStyle]= "{'backgroundColor' : fund.isClicked ? 'rgb(222, 231, 210)' : 'white'}" 
           [ngClass]="{'ng-class-1' : fund.isClicked}"
           ></fund> 

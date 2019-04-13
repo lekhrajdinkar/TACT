@@ -4,7 +4,7 @@
 }
 
 .fund-actions {
-    text-align: center;
+    text-align: center; 
 }
 
 .page{
@@ -13,7 +13,7 @@
   }
 
   #temp_id1{
-    box-shadow: 5px 5px 5px rgb(222, 231, 210)
+    box-shadow: 5px 5px 10px rgb(222, 231, 210)
   }
 
   .ng-class-1{

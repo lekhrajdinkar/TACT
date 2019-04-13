@@ -1,9 +1,9 @@
-<div class="fund">
+<div class="fund" (click)="onSimpleClick()">
 
 <mat-card-header>
     <mat-card-title>
         <p class="badge badge-warning text-wrap"> Fund Number : {{fund.num}}</p>
-        
+        <div [@divTrigger]="clickInfo" class="m-2"></div>
     </mat-card-title>
 </mat-card-header>
 
@@ -13,6 +13,7 @@
         <p class="text-muted"> Abbreviation: {{fund.abbr}}</p>
         <p class="text-muted"> created by: {{fund.created_by}}</p>
         <p class="text-muted"> created on : {{fund.create_dt}}</p>
+        
         <p class="text-muted"> _id : {{fund._id}}</p>
 </mat-card-content>
 
