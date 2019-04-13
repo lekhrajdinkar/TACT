@@ -10,6 +10,7 @@
           <fund [fund]=fund [index]=i 
           (click)="fund.isClicked = !fund.isClicked"
           [ngStyle]= "{'backgroundColor' : fund.isClicked ? 'rgb(222, 231, 210)' : 'white'}" 
+          [ngClass]="{'ng-class-1' : fund.isClicked}"
           ></fund> 
         </div>
       </mat-card>
