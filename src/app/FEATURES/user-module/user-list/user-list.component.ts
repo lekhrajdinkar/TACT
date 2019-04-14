@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { usersData } from './user-list-item/uses.data';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 @Component({
@@ -9,7 +8,7 @@ import { usersData } from './user-list-item/uses.data';
 })
 export class UserListComponent implements OnInit {
 
-  users : User[] = usersData;
+  @Input() users : User[]
   constructor() { }
 
   ngOnInit() {

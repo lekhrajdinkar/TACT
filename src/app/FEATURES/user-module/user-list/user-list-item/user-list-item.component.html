@@ -1,17 +1,25 @@
+{{index}}
 <div class="row">
-  <div class="col">
-    <ul>
-      <li>{{user.name}}</li>
-      <li>{{user.role}}</li>
-      <li>{{user.initial}}</li>
-      <li>{{user.loc}}</li>
+  <div class="col-5">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-primary m-1 " ><strong>{{user.initial}} ({{user.name}})</strong></li>
+      <li class="list-group-item p-0 m-1 b-0"><span class="ml-2 text text-muted text-center badge badge-info">{{user.role}}</span></li>
+      <li class="list-group-item p-0 m-1"><span class="ml-2">Location : {{user.loc}}</span></li>
     </ul>
     
   </div>
-  <div class="col">
-    {{user.role}}
+  <div class="col-2 border border-grey m-2">
+    <img src="" alt="img">
   </div>
-  <div class="col">
-
+  <div class="col-4">
+      <li class="list-group-item p-0 m-1 b-0"><span class="ml-2 text text-muted text-sm-left">last login: </span></li>
+      <li class="list-group-item p-0 m-1"><span class="ml-2 badge badge-success">online</span></li>
+      <button mat-mini-fab color="warn">X</button>
   </div>
 </div>
+
+
+<!-- 
+
+  [ngClass]="selected ? 'active' : ''
+ -->

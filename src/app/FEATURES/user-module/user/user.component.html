@@ -1,8 +1,10 @@
-<div> Users</div>
+<div class="m-2 text text-primary text-center "> Users Parent Component</div>
+
+<mat-divider></mat-divider>
 
 <div class="row">
   <div class="col-6">
-      <app-user-list></app-user-list>
+      <app-user-list [users]="usersHC"></app-user-list>
   </div>
 
   <div class="col-6">
