@@ -1,12 +1,14 @@
 <div class="row">
   <div class="col">
-    <button> ADD </button>
+      <button mat-raised-button color="primary">Add</button>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
-    <app-user-list-item [index]="i" [user]="user" *ngFor="let user of users; index as i"></app-user-list-item>
+    <a><app-user-list-item [index]="i" [user]="user" *ngFor="let user of users; index as i"
+      (click)="loadDetail(i)" [@compBump]="selectedItemIndex === i ? 'bump' : 'default'"
+      ></app-user-list-item></a>
   </div>
 </div>
 

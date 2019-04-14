@@ -74,12 +74,20 @@ export const click_trigger = trigger('clickTrigger', [
     
     })),
     state('bump', style({
-    
+
     })),
     transition('default => bump', [
       animate('0.1s', style({transform :  'scale(1.2)'}))
     ])
   ])
+
+  export const compBumpNoState = trigger('compBumpNoState', [
+    transition('* => *', [
+      animate('0.2s', style({transform :  'scale(1.5)'}))
+    ])
+  ])
+
+
 
   //fadeout
   export const routingAminTriggerFadeOut = trigger('routingAminTriggerFadeOut', [
