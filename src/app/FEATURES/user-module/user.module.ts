@@ -10,9 +10,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserModuleRouting } from './user.module.routing';
+import { UserListItemComponent } from './user-list/user-list-item/user-list-item.component';
+import { UserResolver } from './user.resolver';
 
 @NgModule({
-  declarations: [UserComponent, UserListComponent, UserAddComponent, UserDetailComponent],
+  declarations: [UserComponent, UserListComponent, UserAddComponent, UserDetailComponent, UserListItemComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -21,7 +23,7 @@ import { UserModuleRouting } from './user.module.routing';
     FormsModule,ReactiveFormsModule,
     UserModuleRouting
   ],
-  providers :[UserService]
+  providers :[UserService, UserResolver]
 })
 
 export class UserModule { }
