@@ -115,7 +115,7 @@ export const click_trigger = trigger('clickTrigger', [
 
   ])
 
-  //Enter Left
+  //Enter Up
   export const routingAminTriggerGoUp= trigger('routingAminTriggerGoUp', [
     transition(':enter', 
     [

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor() { }
+  index = 0;
+  constructor(private router : Router, 
+    private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params) => {this.index = params['index'];}
+    )
   }
 
 }
