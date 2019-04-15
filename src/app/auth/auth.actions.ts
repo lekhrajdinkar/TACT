@@ -31,12 +31,15 @@ export type AuthState = {
 }
 
 //3. Reducer - updates state when action is dispatch with payload
-export function authReducer(state :AuthState, action) : AuthState {
+
+const initialState = { isLoggedIn: false, currentUser: undefined, jwt : undefined}
+
+export function authReducer(state :AuthState = initialState, action) : AuthState {
   switch(action.type){
 
     case AuthActionTypes.Login : return { isLoggedIn : true, currentUser : action.payload.initial, jwt : action.payload.jwt} ;
 
-    case AuthActionTypes.Logout : return { isLoggedIn : false, currentUser : null, jwt : null} 
+    case AuthActionTypes.Logout : return { isLoggedIn : false, currentUser : undefined, jwt : undefined} 
 
     default : return state;
   }
