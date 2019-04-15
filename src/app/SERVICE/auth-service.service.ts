@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, noop } from 'rxjs';
 import { UserDetail } from '../MODEL/User';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { AuthResponse } from '../auth/auth.model';
+import { pipe } from '@angular/core/src/render3';
+import { TactState } from '../reducers';
+import { Store } from '@ngrx/store';
+import { LoginAction } from '../auth/auth.actions';
 
 export const UNKNOWN_USER : UserDetail = {username : 'unknown'}
 
@@ -22,7 +26,10 @@ export class AuthService {
   host = 'https://tact-nodejs.herokuapp.com' ;
   //host = 'http://localhost:5000' ;
  
-  constructor(private router:Router, private http : HttpClient) { }
+  constructor(
+    private router:Router, 
+    private http : HttpClient,
+    private store : Store<TactState>) { }
 
   //Fake Login
   authorize(initial : string, password : string){
@@ -33,14 +40,27 @@ export class AuthService {
 
     const url= `${this.host}/tact2/login` ;
    
-     this.http.post(url,{initial,password} ,httpOptions).subscribe(
-      (data: AuthResponse) => {
+     this.http.post(url,{initial,password} ,httpOptions)
+     .pipe(
+       tap((data: AuthResponse) => 
+       {
+        //1.1. store Login info in service
         this.authResp = data;
         this.subject.next({username : data.initial});
+
+         //1.2. store Login info in Store ngRx
+         this.authResp = data;
+         this.store.dispatch(new LoginAction(data));
+
+        //2. navigate to Home
         this.router.navigate(["home"]);
-      },
+      }),
+  
+     )
+     .subscribe(
+      noop,
       (err) => {
-        alert('login failed');
+        alert('login failed. Check error Logs');
       }
     )
   }
