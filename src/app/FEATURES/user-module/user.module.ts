@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserModuleRouting } from './user.module.routing';
 import { UserListItemComponent } from './user-list/user-list-item/user-list-item.component';
 import { UserResolver } from './user.resolver';
+import { TactCommonModule } from 'src/app/common/common.module';
 
 @NgModule({
   declarations: [UserComponent, UserListComponent, UserAddComponent, UserDetailComponent, UserListItemComponent],
@@ -21,7 +22,8 @@ import { UserResolver } from './user.resolver';
     RouterModule,
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
-    UserModuleRouting
+    UserModuleRouting,
+    TactCommonModule
   ],
   providers :[UserService, UserResolver]
 })

@@ -7,7 +7,7 @@
       <mat-card-content>
           <div class="d-flex flex-column m-4">
           <mat-form-field>
-            <input matInput type="text" placeholder="initial" name="initial" ngModel #abbr>
+            <input matInput type="text" placeholder="initial" name="initial" ngModel #initial>
           </mat-form-field>
 
           <mat-form-field>
@@ -15,14 +15,17 @@
             </mat-form-field>
           
           <mat-form-field>
-            <input matInput type="text" placeholder="location" name="loc" ngModel #loc>
+            <mat-select placeholder="Select location" placeholder="loc" name="role" ngModel #loc>
+                <mat-option value="IRVINE">IRVINE</mat-option>
+                <mat-option value="LA">LA</mat-option>
+              </mat-select>
           </mat-form-field>
 
           <mat-form-field>
-              <input matInput type="text" >
-              <mat-select placeholder="Select location" placeholder="role" name="role" ngModel #role>
-                  <mat-option value="IRVINE">IRVINE</mat-option>
-                  <mat-option value="LA">LA</mat-option>
+              
+              <mat-select placeholder="Select Role" placeholder="role" name="role" ngModel #role>
+                  <mat-option value="IRVINE">DEVELOPER</mat-option>
+                  <mat-option value="LA">BSA</mat-option>
                 </mat-select>
           </mat-form-field>
           </div>
@@ -30,7 +33,7 @@
     
       <mat-card-actions class="fund-actions">
           <button mat-raised-button color="primary" type="submit" 
-          (click)= 'addFund(initial.value, name.value, loc.value, role.value)'>Add</button>   
+          (click)= 'addFund(name.value, role.value, initial.value, loc.value)'>Add</button>   
       </mat-card-actions>
    
 

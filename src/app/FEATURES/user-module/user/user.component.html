@@ -1,11 +1,14 @@
 <div class="m-2 text text-primary text-center " style="overflow: hidden"
 > Users Parent Component (smart)</div>
 
+
 <mat-divider></mat-divider>
 
 <div class="row">
   <div class="col-4">
+      <app-progress-bar *ngIf="!users" style="margin : 50% 50%"></app-progress-bar>
       <!-- <app-user-list [users]="usersHC.slice(0,3)"></app-user-list> -->
+
       <app-user-list [users]="users"></app-user-list>
   </div>
 
@@ -13,3 +16,6 @@
     <router-outlet></router-outlet>
   </div>
 </div>
+
+
+

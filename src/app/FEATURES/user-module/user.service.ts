@@ -36,6 +36,20 @@ export class UserService {
       );
   }
 
+  addUser(name, role, initial, loc){
+    return this.http.post(
+      `${this.host}/tact2/add-user`
+      ,{name, role , initial, loc} //User Model
+      ,{
+        observe: 'response', 
+        headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              'Authorization' : 'Bearer '+this.getToken() })
+       }
+       );
+  }
+
+
   //Get Token
 getToken(){
   let token = '';
