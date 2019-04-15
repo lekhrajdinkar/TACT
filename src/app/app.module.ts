@@ -14,6 +14,12 @@ import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.c
 import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loaded module
 import { ErrorComponent } from './error/error.component';
 import { TactCommonModule } from './common/common.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { TactCommonModule } from './common/common.module';
     FundModule, //routing order matter, load it  FundModule(fund.routing.module) before AppRoutingModule ***
     AppRoutingModule,
     BrowserAnimationsModule,
-    TactCommonModule
+    TactCommonModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([AppEffects])
 
     
   ],

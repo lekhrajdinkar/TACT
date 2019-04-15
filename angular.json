@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "TACT"
+  "defaultProject": "TACT",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
