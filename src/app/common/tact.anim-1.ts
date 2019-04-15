@@ -74,10 +74,13 @@ export const click_trigger = trigger('clickTrigger', [
     
     })),
     state('bump', style({
-
+      backgroundColor:'rgb(220, 255, 150)',
+      border: "3px solid blue"
     })),
     transition('default => bump', [
-      animate('0.1s', style({transform :  'scale(1.2)'}))
+      animate('0.5s', style({transform :  'translateX(-2rem)'})),
+      animate('0.5s', style({transform :  'translateX(2rem)'})),
+      animate('0.2s', style({transform :  'scale(1.2)'}))
     ])
   ])
 
