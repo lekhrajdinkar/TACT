@@ -9,6 +9,8 @@
 
       <form [formGroup]="form" class="login-form">
 
+          <app-progress-bar *ngIf='inProgress' class="progress-comp"></app-progress-bar>
+
           <mat-form-field>
 
               <input matInput type="text"
@@ -38,3 +40,4 @@
       </form>
   </mat-card-content>
 </mat-card>
+

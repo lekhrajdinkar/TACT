@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   @HostBinding('@routingAminTriggerEnterLeft') routingAminTriggerEnterLeft = true;
   form: FormGroup;
-
+  inProgress = false;
   constructor(
       private fb:FormBuilder, private router:Router, private authSrv : AuthService) {
 
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
 
   login(u,p) {
+    this.inProgress = true;
     this.authSrv.authorize(u,p);
   }
 

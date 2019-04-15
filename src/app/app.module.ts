@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home/home.component';
 import { FundEditComponent } from './home/fund-maintenance/fund-edit/fund-edit.component';
 import { FundModule } from './FEATURES/fund-module/fund.module'; //eagerly loaded module
 import { ErrorComponent } from './error/error.component';
+import { TactCommonModule } from './common/common.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ErrorComponent } from './error/error.component';
     FundModule, //routing order matter, load it  FundModule(fund.routing.module) before AppRoutingModule ***
     AppRoutingModule,
     BrowserAnimationsModule,
+    TactCommonModule
 
     
   ],

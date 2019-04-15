@@ -1,18 +1,42 @@
 <div class="m-2 text text-primary text-center "> 1.1 Users details Component (Presentational)</div>
-<div class="row">
-  <div class="col">
-    User index :  {{ index}}
-  </div>
-</div>
+<mat-divider></mat-divider>
 
-<div class="row">
-    <div class="col">
-      Actvity histories
-    </div>
-  </div>
+<mat-card class="add-fund-card m-4">
 
-  <div class="row">
+  <mat-card-title>User Details</mat-card-title>
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <div class="row">
       <div class="col">
-        other Details
+        index : <span class="badge badge-info" [@compBumpNoState]> {{ index}}</span>
       </div>
-  </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-title>Actvity histories</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="row">
+      <div class="col">
+          in progress...
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-title>Other Details</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="row">
+      <div class="col">
+          in progress...
+      </div>
+    </div>
+  </mat-card-content>
+
+
+
+
+
+
+</mat-card>
