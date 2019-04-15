@@ -22,26 +22,27 @@ export class LogoutAction implements Action {
 
 
 export type AuthActions = LoginAction | LogoutAction;
+//----------------------------------
 
-//2. state
-export type AuthState = {
-  isLoggedIn: boolean;
-  currentUser: string;
-  jwt : string;
-}
+// //2. state
+// export type AuthState = {
+//   isLoggedIn: boolean;
+//   currentUser: string;
+//   jwt : string;
+// }
 
-//3. Reducer - updates state when action is dispatch with payload
+// //3. Reducer - updates state when action is dispatch with payload
 
-const initialState = { isLoggedIn: false, currentUser: undefined, jwt : undefined}
+// const initialState = { isLoggedIn: false, currentUser: undefined, jwt : undefined}
 
-export function authReducer(state :AuthState = initialState, action) : AuthState {
-  switch(action.type){
+// export function authReducer(state :AuthState = initialState, action) : AuthState {
+//   switch(action.type){
 
-    case AuthActionTypes.Login : return { isLoggedIn : true, currentUser : action.payload.initial, jwt : action.payload.jwt} ;
+//     case AuthActionTypes.Login : return { isLoggedIn : true, currentUser : action.payload.initial, jwt : action.payload.jwt} ;
 
-    case AuthActionTypes.Logout : return { isLoggedIn : false, currentUser : undefined, jwt : undefined} 
+//     case AuthActionTypes.Logout : return { isLoggedIn : false, currentUser : undefined, jwt : undefined} 
 
-    default : return state;
-  }
+//     default : return state;
+//   }
 
-}
+// }

@@ -1,7 +1,6 @@
 import {ActionReducer, ActionReducerMap,  createFeatureSelector,  createSelector,  MetaReducer} from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { AuthResponse } from '../auth/auth.model';
-import { AuthActionTypes, AuthActions, AuthState, authReducer } from '../auth/auth.actions';
+import { AuthState, authReducer } from '../auth/auth.reducer';
 
 //Global State
 export interface TactState {
