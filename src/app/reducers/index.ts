@@ -6,14 +6,18 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { Fund } from '../FEATURES/fund-module/fund.model';
 
-export interface State {
+export interface TactState {
+  //users : User[];
+  //funds : Fund[];
+  //currentUser : User;
 
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<TactState> = {
 
 };
 
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<TactState>[] = !environment.production ? [] : [];
