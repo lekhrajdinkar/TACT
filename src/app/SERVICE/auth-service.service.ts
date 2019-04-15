@@ -8,7 +8,7 @@ import { AuthResponse } from '../auth/auth.model';
 import { pipe } from '@angular/core/src/render3';
 import { TactState } from '../reducers';
 import { Store } from '@ngrx/store';
-import { LoginAction } from '../auth/auth.actions';
+import { LoginAction, LogoutAction } from '../auth/auth.actions';
 
 export const UNKNOWN_USER : UserDetail = {username : 'unknown'}
 
@@ -68,7 +68,11 @@ export class AuthService {
   logout(){
     this.authResp = null; //clean up jwt 
     this.subject.next(UNKNOWN_USER);
+
+    this.store.dispatch(new LogoutAction());
+
     this.router.navigate(["login"]);
+
   }
 
   //Auth Gaurd

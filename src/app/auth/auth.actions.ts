@@ -17,7 +17,7 @@ export class LoginAction implements Action {
 //2. Login Action class
 export class LogoutAction implements Action {
   readonly type = AuthActionTypes.Logout;
-  constructor( private payload : AuthResponse ){}
+  //constructor( private payload : AuthResponse ){}
 }
 
 
