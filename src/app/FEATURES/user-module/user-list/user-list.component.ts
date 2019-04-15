@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { compBump, compBumpNoState } from 'src/app/common/tact.anim-1';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { noop } from 'rxjs';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class UserListComponent implements OnInit {
   @Input() users : User[];
   selectedItemIndex ;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private userSrv : UserService) { }
 
   ngOnInit() {}
 
@@ -27,6 +29,10 @@ export class UserListComponent implements OnInit {
   addUser(){
     console.log("adding user");
     this.router.navigate(['user-module/add-user'],{});
+  }
+
+  refresh(){
+    this.userSrv.getAllUser().subscribe(noop);
   }
 
 }

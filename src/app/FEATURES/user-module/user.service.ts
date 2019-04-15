@@ -35,7 +35,7 @@ export class UserService {
                 'Authorization' : 'Bearer '+this.getToken() })
          }
       ).pipe(
-        //tap((r)=> {console.log(r)}),
+        tap(()=> {console.log("REST CALL made to get user Data")}),
         //step -4 dispatch Action
         tap((data)=> {this.store.dispatch(new LoadAllUserAction({users : data.body})) ;}),
       );
