@@ -12,9 +12,10 @@ const routes: Routes =
   {
     path: '', component : UserComponent, children: 
     [
-      { path: '', component: UserAddComponent },
+      { path: '', component: UserDetailComponent },
       { path: 'get-detail/:index', component: UserDetailComponent },
-      { path: 'add-user', component: UserAddComponent }
+      { path: 'add-user', component: UserAddComponent },
+      
     ]
   }
 ];
