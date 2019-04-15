@@ -5,6 +5,9 @@ import { tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
 import { Observable } from 'rxjs';
 import { Fund } from '../fund-module/fund.model';
+import { TactState } from 'src/app/reducers';
+import { Store } from '@ngrx/store';
+import { LoadAllUserAction } from './user.actions';
 
 @Injectable()
 export class UserService {
@@ -13,7 +16,8 @@ export class UserService {
   //host = 'http://localhost:5000' ;
   users : User []
   constructor( private http : HttpClient
-    , private authSrv : AuthService) { }
+    , private authSrv : AuthService
+    , private store : Store<TactState>) { }
 
   getAllHardcodedUser(){
     return usersData;
@@ -31,8 +35,9 @@ export class UserService {
                 'Authorization' : 'Bearer '+this.getToken() })
          }
       ).pipe(
-        tap((r)=> {console.log(r)}),
-        //tap((r)=> {return r.body ;}),
+        //tap((r)=> {console.log(r)}),
+        //step -4 dispatch Action
+        tap((data)=> {this.store.dispatch(new LoadAllUserAction({users : data.body})) ;}),
       );
   }
 

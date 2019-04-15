@@ -13,6 +13,8 @@ import { UserModuleRouting } from './user.module.routing';
 import { UserListItemComponent } from './user-list/user-list-item/user-list-item.component';
 import { UserResolver } from './user.resolver';
 import { TactCommonModule } from 'src/app/common/common.module';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './user.Reducer';
 
 @NgModule({
   declarations: [UserComponent, UserListComponent, UserAddComponent, UserDetailComponent, UserListItemComponent],
@@ -23,7 +25,8 @@ import { TactCommonModule } from 'src/app/common/common.module';
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
     UserModuleRouting,
-    TactCommonModule
+    TactCommonModule,
+    StoreModule.forFeature('users', userReducer), //step -3 register Reducer
   ],
   providers :[UserService, UserResolver]
 })
