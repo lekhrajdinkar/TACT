@@ -24,7 +24,10 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.usersHC = this.userSrv.getAllHardcodedUser();
     
-    this.users$ = this.userSrv.getAllUser();
+    this.users$ = this.userSrv.getAllUser(); //http get observble
+
+    //Subcribe whole state
+    this.store.subscribe(state => console.log(state))
 
     this.users$.subscribe(
       (data: any) => {this.users = data.body ; }
