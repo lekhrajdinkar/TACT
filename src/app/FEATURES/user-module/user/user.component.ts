@@ -4,6 +4,7 @@ import { TactState } from 'src/app/reducers';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user',
@@ -27,11 +28,23 @@ export class UserComponent implements OnInit {
     this.users$ = this.userSrv.getAllUser(); //http get observble
 
     //Subcribe whole state
-    this.store.subscribe(state => console.log(state))
-
-    this.users$.subscribe(
-      (data: any) => {this.users = data.body ; }
-    );
+    this.store.pipe(
+      tap(state => {console.log('complete State : TactState ==> ',state)}),
+      map( (state:any) => state.userState.users)
+    )
+    .subscribe(users => {
+      console.log('only UserState ==> ', users)
+      
+      //If data not present in state then only make REST
+      if (users == undefined){
+        this.users$.subscribe(
+          (data: any) => {this.users = data.body ; console.log('got from REST')}
+        );
+      }else{
+        console.log('got from Store')
+        this.users = users;
+      }
+    })
 
   }
 

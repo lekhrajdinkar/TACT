@@ -46,7 +46,7 @@ import * as fromAuth from './auth/auth.reducer';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
-    StoreModule.forFeature('auth', fromAuth.reducer)
+    StoreModule.forFeature('authState', fromAuth.reducer)
 
     
   ],

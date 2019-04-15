@@ -26,7 +26,7 @@ import { userReducer } from './user.Reducer';
     FormsModule,ReactiveFormsModule,
     UserModuleRouting,
     TactCommonModule,
-    StoreModule.forFeature('users', userReducer), //step -3 register Reducer
+    StoreModule.forFeature('userState', userReducer), //step -3 register Reducer => users will be property of tactState
   ],
   providers :[UserService, UserResolver]
 })
