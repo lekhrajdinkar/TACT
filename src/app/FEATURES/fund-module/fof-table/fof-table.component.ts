@@ -15,6 +15,15 @@ export class FofTableComponent implements OnInit {
   fundNumbers: {label : String, value : String}[] ; 
   created_bys: {label : String, value : String}[] ;
 
+  data = {
+    labels: ['Growth','Equity','Bond'],
+    datasets: [{
+            data: [20, 70, 10],
+            backgroundColor: ["#FF6384","#36A2EB","#FFCE56"],
+            hoverBackgroundColor: ["#FF6384","#36A2EB","#FFCE56"]
+        }]    
+    };
+
 
     constructor(private fundSrv: FundService) { }
 
@@ -40,5 +49,7 @@ export class FofTableComponent implements OnInit {
         ];
     }
 
+
+    
   
 }
