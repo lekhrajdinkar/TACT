@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FundDetailComponent } from './fund-detail/fund-detail.component';
 import { FundModuleRouting } from './fund.module.routing';
 import { TactCommonModule } from 'src/app/common/common.module';
+import { FofTableComponent } from './fof-table/fof-table.component';
+import { PrimeNGModule } from 'src/app/ngprime.module';
 
 
 @NgModule({
-  declarations: [FundComponent, FundListComponent, FundAddComponent, FundDetailComponent],
+  declarations: [FundComponent, FundListComponent, FundAddComponent, FundDetailComponent, FofTableComponent],
   imports: [
     CommonModule,
-    MaterialModule,
+    MaterialModule,PrimeNGModule,
     RouterModule,
     HttpClientModule,
     FormsModule,ReactiveFormsModule,

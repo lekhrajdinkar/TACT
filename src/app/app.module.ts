@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material.module';
+import { MaterialModule  } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FundMaintenanceComponent } from './home/fund-maintenance/fund-maintenance.component';
 import { ReportComponent } from './home/report/report.component';
@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import * as fromAuth from './auth/auth.reducer';
+import {   PrimeNGModule} from './ngprime.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import * as fromAuth from './auth/auth.reducer';
     BrowserAnimationsModule,
     FormsModule,ReactiveFormsModule,
 
-    MaterialModule,
+    MaterialModule, PrimeNGModule,
     FundModule, //routing order matter, load it  FundModule(fund.routing.module) before AppRoutingModule ***
     AppRoutingModule,
     BrowserAnimationsModule,
