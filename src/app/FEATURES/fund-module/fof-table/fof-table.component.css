@@ -1,0 +1,11 @@
+.fund-card{
+    border: none;
+}
+
+.is-odd{
+    background-color: rgb(212, 243, 243);
+}
+
+.is-first{
+    border: 2px solid blueviolet
+}

@@ -49,6 +49,15 @@ export class FofTableComponent implements OnInit {
         ];
     }
 
+    getCardClass(isOdd: boolean, isFirst : boolean){
+        console.log('called', isFirst,  isOdd );
+        return {
+            'is-odd' : isOdd,
+            'fund-card' : true,
+            'is-first' : isFirst
+        }
+    }
+
 
     
   

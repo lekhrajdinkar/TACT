@@ -8,11 +8,12 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {TreeTableModule} from 'primeng/treetable';
 import {TreeNode} from 'primeng/api';
 import {ChartModule} from 'primeng/chart';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
     imports:[SplitButtonModule,PaginatorModule, TableModule, PanelModule, DropdownModule, MultiSelectModule
-    ,TreeTableModule,ChartModule ],
+    ,TreeTableModule,ChartModule , CardModule],
     exports:[SplitButtonModule, PaginatorModule, TableModule, PanelModule, DropdownModule, MultiSelectModule
-    ,TreeTableModule,ChartModule]
+    ,TreeTableModule,ChartModule, CardModule]
 })
 export class PrimeNGModule {}
