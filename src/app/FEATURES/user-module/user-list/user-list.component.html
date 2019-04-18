@@ -1,15 +1,25 @@
 <div class="row">
   <div class="col">
-      <button mat-raised-button color="primary" (click)="addUser()">Add new User</button>
-      <button mat-raised-button color="primary" (click)="refresh()" class="ml-4">Refresh</button>
+    <button mat-raised-button color="primary" (click)="addUser()">Add new User</button>
+    <button mat-raised-button color="primary" (click)="refresh()" class="ml-4">Refresh</button>
   </div>
 </div>
 
 <div class="row">
   <div class="col">
-    <a><app-user-list-item [index]="i" [user]="user" *ngFor="let user of users; index as i"
-      (click)="loadDetail(i)" [@compBump]="selectedItemIndex === i ? 'bump' : 'default'"
-      ></app-user-list-item></a>
+    <a>
+      <app-user-list-item [index]="i" [user]="user" *ngFor="let user of users; index as i" (click)="loadDetail(i)"
+        [@compBump]="selectedItemIndex === i ? 'bump' : 'default'">
+        <!-- content projection -->
+        <div class="badge badge-success"> content projection </div>
+        <div class="badge badge-warning"> content projection </div>
+        <i class="material-icons ml-auto mr-auto" #icon1>account_box</i>
+        <i class="material-icons ml-auto mr-auto" #icon3>account_circle</i>
+
+        <app-progress-bar></app-progress-bar>
+        <app-progress-bar></app-progress-bar>
+
+      </app-user-list-item>
+    </a>
   </div>
 </div>
-

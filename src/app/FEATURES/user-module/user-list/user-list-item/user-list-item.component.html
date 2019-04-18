@@ -5,14 +5,27 @@
       <span class="m-2 text text-muted text-center badge badge-info"><strong>{{user.initial}} ({{user.name}})</strong></span>
       <span class="m-2 text text-muted text-center badge badge-info">{{user.role}}</span>
       <span class="m-2">Location : {{user.loc}}</span>
+      <ng-content select=".badge-warning"></ng-content>
+     
     </ul>
     
   </div>
   <div class="col-4 border border-grey m-2">
-    <img src="" alt="img">
+
+    <ng-content select="i"></ng-content>
+    <mat-divider></mat-divider>
+    <i class="material-icons ml-auto mr-auto" #icon2>gif</i>
+    <i class="material-icons ml-auto mr-auto" #icon4>gif</i>
+
   </div>
 
 </div>
+
+<ng-content select="app-progress-bar"></ng-content> 
+<mat-divider></mat-divider>
+<app-progress-bar></app-progress-bar>
+<app-progress-bar></app-progress-bar>
+
 
 
 <!-- 

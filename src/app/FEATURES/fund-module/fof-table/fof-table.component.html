@@ -68,7 +68,8 @@
 <mat-divider></mat-divider>
 
 <div class="d-flex flex-column flex-wrap ">
-    <p-card *ngFor="let fof of fofs | slice:0:2; even as isEven; first as isFirst" class="m-4 w-25 ml-auto mr-auto" [ngClass]="getCardClass(isEven, isFirst)">
+    <p-card *ngFor="let fof of fofs | slice:0:2; even as isEven; first as isFirst" class="m-4 w-25 ml-auto mr-auto" 
+    [ngClass]="getCardClass(isEven, isFirst)">
             <p-header class="text text-center"> {{fof.abbr}}  {{fof.num}}</p-header>
             <div style="width: 100%;">
                     <p-chart type="doughnut" [data]="data"></p-chart>
