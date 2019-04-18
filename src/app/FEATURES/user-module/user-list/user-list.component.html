@@ -2,14 +2,45 @@
   <div class="col">
     <button mat-raised-button color="primary" (click)="addUser()">Add new User</button>
     <button mat-raised-button color="primary" (click)="refresh()" class="ml-4">Refresh</button>
+    <button mat-raised-button color="primary" (click)="flag = !flag " class="ml-4">ngTemplate Usage1</button>
   </div>
+  
 </div>
+
+
+<!-- ng-template : usages -->
+<div>
+
+    <div *ngIf="flag; else elseSection1"></div>
+
+    <!-- 1. else part -->
+    <ng-template #elseSection1 let-var11="var1">
+        <app-progress-bar></app-progress-bar>
+    </ng-template>
+
+    <!-- 2. -->
+    <ng-template #template2 let-var11="var1">
+        {{var11}}
+    </ng-template>
+
+    <!-- <div *ngTemplateOutlet="template2; context: {var1 : 'ngTemplate usage 2 - passing param frm context'}" class="border border-primary m-1"></div> -->
+    <ng-container *ngTemplateOutlet="template2; context: {var1 : 'ngTemplate usage 2 - passing param frm context'}" class="border border-primary m-1"></ng-container>
+    <br>note : ng-container is better place for structural directive.
+
+    <!-- 3. getting projection like behaviour -->
+    <ng-template #template3>
+        <p>ng-template usage 3 - pass to child comp via @Input</p>
+    </ng-template>
+  </div>
+
 
 <div class="row">
   <div class="col">
     <a>
       <app-user-list-item [index]="i" [user]="user" *ngFor="let user of users; index as i" (click)="loadDetail(i)"
-        [@compBump]="selectedItemIndex === i ? 'bump' : 'default'">
+        [@compBump]="selectedItemIndex === i ? 'bump' : 'default'"
+        [ngtemplateU3]="template3">
+
         <!-- content projection -->
         <div class="badge badge-success"> content projection </div>
         <div class="badge badge-warning"> content projection </div>
@@ -23,3 +54,4 @@
     </a>
   </div>
 </div>
+

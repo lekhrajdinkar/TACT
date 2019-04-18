@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterContentInit, ContentChild, AfterViewInit, ContentChildren, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterContentInit, ContentChild, AfterViewInit, ContentChildren, ViewChildren, QueryList, TemplateRef } from '@angular/core';
 import { ProgressBarComponent } from 'src/app/common/custom-comp/progress-bar/progress-bar.component';
 
 @Component({
@@ -10,6 +10,8 @@ export class UserListItemComponent implements OnInit, AfterContentInit, AfterVie
 
   @Input() user : User;
   @Input() index: number;
+
+  @Input('ngtemplateU3') ngtu3 : TemplateRef<any>; //ng template usage 3.l > passed to html.
 
   @ViewChild('icon2', {read:ElementRef} ) icon2 : ElementRef; // from current comp
   @ViewChildren('ProgressBarComponent', {read:ElementRef} ) all_icons ; // getAll icons from CP - icon 1 and 3
@@ -25,6 +27,7 @@ export class UserListItemComponent implements OnInit, AfterContentInit, AfterVie
   }
 
   ngOnInit() {
+    console.log('ng template U3 : ',this.ngtu3)
     //console.log(' ngOnInit icon1 ER : ',this.icon1); // ok ?
     //console.log(' ngOnInit icon2 ER : ',this.icon2); // ok ?
   }
