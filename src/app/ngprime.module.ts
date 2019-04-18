@@ -9,10 +9,12 @@ import {TreeTableModule} from 'primeng/treetable';
 import {TreeNode} from 'primeng/api';
 import {ChartModule} from 'primeng/chart';
 import {CardModule} from 'primeng/card';
+import {OrganizationChartModule} from 'primeng/organizationchart';
 
 @NgModule({
     imports:[SplitButtonModule,PaginatorModule, TableModule, PanelModule, DropdownModule, MultiSelectModule
     ,TreeTableModule,ChartModule , CardModule],
+
     exports:[SplitButtonModule, PaginatorModule, TableModule, PanelModule, DropdownModule, MultiSelectModule
     ,TreeTableModule,ChartModule, CardModule]
 })

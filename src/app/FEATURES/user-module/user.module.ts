@@ -15,9 +15,10 @@ import { UserResolver } from './user.resolver';
 import { TactCommonModule } from 'src/app/common/common.module';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './user.Reducer';
+import { OrgChartComponent } from './org-chart/org-chart.component';
 
 @NgModule({
-  declarations: [UserComponent, UserListComponent, UserAddComponent, UserDetailComponent, UserListItemComponent],
+  declarations: [UserComponent, UserListComponent, UserAddComponent, UserDetailComponent, UserListItemComponent, OrgChartComponent],
   imports: [
     CommonModule,
     MaterialModule,
