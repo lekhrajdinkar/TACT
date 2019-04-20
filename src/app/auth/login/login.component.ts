@@ -7,14 +7,13 @@ import { routingAminTriggerEnterLeft } from 'src/app/common/tact.anim-1';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.TD.component.html',
+  templateUrl: './login.RF.component.html',
   styleUrls: ['./login.component.css'],
   animations: [routingAminTriggerEnterLeft]
 })
 export class LoginComponent implements OnInit {
 
-
-
+// ======= TD ==============
   //view form before submit
   @ViewChild('loginForm') loginForm : NgForm;
   @ViewChild('lgroup') loginGroup : NgModelGroup;
@@ -38,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.authSrv.authorize(this.loginGroup.value.username, this.loginGroup.value.password);
   }
 
-  setdefault(){
+  setdefaultTD(){
     //setting default values to form
     this.loginForm.setValue({
       lgroup :{
@@ -47,7 +46,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  patch(){
+  patchTD(){
     //setting default values to form
     this.loginForm.form.patchValue({
       lgroup :{
@@ -55,6 +54,26 @@ export class LoginComponent implements OnInit {
       }
     })
   }
+
+
+// ========= RF ========
+//1.create own form - formGroup
+//2. validation + custom validator
+//3. nested formGroup
+//4. Useful - observable
+
+loginRF() {
+  this.inProgress = true;
+  console.log(this.loginGroup);
+  //this.authSrv.authorize(this.loginForm.value.username, this.loginForm.value.password);
+  this.authSrv.authorize(this.loginGroup.value.username, this.loginGroup.value.password);
+}
+
+setdefaultRF(){this.setdefaultTD()} //same as TD
+patchRF() {this.patchTD()} //same as TD
+
+
+//===============================
  //Template 1
 //  login(u,p) {
 //   this.inProgress = true;

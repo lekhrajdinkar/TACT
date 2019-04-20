@@ -1,0 +1,49 @@
+<mat-card class="login-page border b-4 border-primary" >
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+
+        <p>
+            Welcome to the Fund Allocation and calculation Tool. This Application is for authorized user only.
+            Activity in the system is tracked.
+        </p>
+
+        <mat-divider></mat-divider>
+
+        <form (ngSubmit)="loginRF()" class="login-form" autocomplete="off" novalidate>
+
+            
+            <div *ngIf="inProgress">
+                <app-progress-bar [message]="'authenticating...'" class="progress-comp" bgColor="#49f232" color="blue" width="1px"></app-progress-bar>
+                <mat-divider></mat-divider>
+            </div>
+
+            <div class="login-form">
+            <mat-form-field class="mt-4">
+                <input matInput type="text" placeholder="Enter Username" >
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="password" placeholder="Enter password">
+                <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+            </mat-form-field>
+
+            
+            <div *ngFor="let location of locations"> <label><input  type="radio" name="location" [value]="location"> {{location}} </label></div>
+           </div>
+
+            <mat-divider></mat-divider>
+            <div class="d-flex flex-row ml-auto mr-auto">
+                <button mat-raised-button color="primary" class="m-4" type="submit" >Login</button>
+
+                <button mat-raised-button color="warning" type="button" class="m-4" >Clear</button>
+            
+            </div>
+
+
+        </form>
+
+        <mat-divider></mat-divider>
+        Dev mode : <button  class="btn btn-sm btn-danger" type="button" (click)="setdefauRF()">auto-fill</button>
+        <button  class="btn btn-sm btn-danger" type="button" (click)="patchRF()">patch</button>
+    </mat-card-content>
+</mat-card>
