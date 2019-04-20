@@ -9,7 +9,7 @@
 
         <mat-divider></mat-divider>
 
-        <form (ngSubmit)="loginRF()" class="login-form" autocomplete="off" novalidate>
+        <form (ngSubmit)="loginRF()" class="login-form" autocomplete="off" novalidate [formGroup]="loginReactiveForm">
 
             
             <div *ngIf="inProgress">
@@ -19,16 +19,19 @@
 
             <div class="login-form">
             <mat-form-field class="mt-4">
-                <input matInput type="text" placeholder="Enter Username" >
+                <input matInput type="text" placeholder="Enter Username" [formControlName]="'username'">
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput type="password" placeholder="Enter password">
+                <input matInput type="password" placeholder="Enter password" [formControlName]="'password'">
                 <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
             </mat-form-field>
 
             
-            <div *ngFor="let location of locations"> <label><input  type="radio" name="location" [value]="location"> {{location}} </label></div>
+            <div *ngFor="let loc of locations">
+                <input  type="radio" [formControlName]="'location'" [value]="loc"> {{loc}}
+            </div>
+
            </div>
 
             <mat-divider></mat-divider>

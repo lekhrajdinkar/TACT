@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, HostBinding, ViewChild } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, NgForm, NgModel, NgModelGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators, NgForm, NgModel, NgModelGroup, FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
 import { routingAminTriggerEnterLeft } from 'src/app/common/tact.anim-1';
@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
 
     //RF
     this.loginReactiveForm = new FormGroup({
-  
+      'username' : new FormControl("INYLBD3"),
+      'password' : new FormControl(null),
+      'location' : new FormControl("IRV"),
     });
     console.log(this.loginReactiveForm);
   }
@@ -63,7 +65,7 @@ export class LoginComponent implements OnInit {
 
 
 // ========= RF ========
-//1.create own form - formGroup
+//1.create own form - formGroup > register controls
 //2. validation + custom validator
 //3. nested formGroup
 //4. Useful - observable
