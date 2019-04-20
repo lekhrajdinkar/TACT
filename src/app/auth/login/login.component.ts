@@ -38,6 +38,23 @@ export class LoginComponent implements OnInit {
     this.authSrv.authorize(this.loginGroup.value.username, this.loginGroup.value.password);
   }
 
+  setdefault(){
+    //setting default values to form
+    this.loginForm.setValue({
+      lgroup :{
+        username : "INYLBD", password : '123456', location: 'IRV'
+      }
+    })
+  }
+
+  patch(){
+    //setting default values to form
+    this.loginForm.form.patchValue({
+      lgroup :{
+        username : "INYLBD", location: 'IRV'
+      }
+    })
+  }
  //Template 1
 //  login(u,p) {
 //   this.inProgress = true;
