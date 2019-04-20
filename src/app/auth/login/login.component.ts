@@ -28,6 +28,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.loginForm);
+
+    //RF
+    this.loginReactiveForm = new FormGroup({
+  
+    });
+    console.log(this.loginReactiveForm);
   }
 
   loginTD() {
@@ -61,6 +67,8 @@ export class LoginComponent implements OnInit {
 //2. validation + custom validator
 //3. nested formGroup
 //4. Useful - observable
+
+loginReactiveForm : FormGroup;
 
 loginRF() {
   this.inProgress = true;
