@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     console.log(this.loginForm);
 
-    //RF
+    //RF --> set defualtt  and validator (sync, asyn)
     this.loginReactiveForm = new FormGroup({
-      'username' : new FormControl("INYLBD3"),
-      'password' : new FormControl(null),
-      'location' : new FormControl("IRV"),
+      'username' : new FormControl("INYLBD4", [Validators.required, Validators.minLength(6)]),
+      'password' : new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)]),
+      'location' : new FormControl("IRV", Validators.required)
     });
     console.log(this.loginReactiveForm);
   }
