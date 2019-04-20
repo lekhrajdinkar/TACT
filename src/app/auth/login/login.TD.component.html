@@ -48,7 +48,10 @@
         </form>
 
         <mat-divider></mat-divider>
-        Dev mode : <button  class="btn btn-sm btn-danger" type="button" (click)="setdefaultTD()">auto-fill</button>
+        Dev mode : 
+        <div class="d-flex flex-row ml-auto mr-auto">
+        <button  class="btn btn-sm btn-danger" type="button" (click)="setdefaultTD()">auto-fill</button>
         <button  class="btn btn-sm btn-danger" type="button" (click)="patchTD()">patch</button>
+        </div>
     </mat-card-content>
 </mat-card>

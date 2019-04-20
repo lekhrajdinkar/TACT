@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.loginReactiveForm = new FormGroup({
     'credentials' : new FormGroup(
         {
-        'username' : new FormControl("INYLBD4", [Validators.required, Validators.minLength(6)]),
+        'username' : new FormControl("INYLBD4", [Validators.required, Validators.minLength(6),this.customValidator1.bind(this)]), //custom validator
         'password' : new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)])
         }
       ),
@@ -100,6 +100,14 @@ addMoreFeilds(){
   let control = new FormControl(null, Validators.required);
   (<FormArray>this.loginReactiveForm.get('more-feilds')).push(control);
 }
+
+customValidator1(control : FormControl) : any{
+  if (control.value === 'INYTEST') {
+    return {'customValidatorKey' : true}; 
+  }
+  return null;
+}
+
 //===============================
  //Template 1
 //  login(u,p) {

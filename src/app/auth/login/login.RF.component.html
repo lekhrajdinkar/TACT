@@ -18,10 +18,13 @@
                 <mat-divider></mat-divider>
             </div>
 
+
             <div [formGroupName]="'credentials'" class="login-form">
                 <mat-form-field class="mt-4">
                     <input matInput type="text" placeholder="Enter Username" [formControlName]="'username'">
                 </mat-form-field>
+                <span class="help-block" style="color: coral; marker-end: 1rem;" *ngIf="loginReactiveForm.get('credentials.username').errors">
+                    This name is invalid</span>
 
                 <mat-form-field>
                     <input matInput type="password" placeholder="Enter password" [formControlName]="'password'">
@@ -29,37 +32,36 @@
                 </mat-form-field>
             </div>
 
-            <div *ngFor="let loc of locations">
+            <span *ngFor="let loc of locations">
                 <input type="radio" [formControlName]="'location'" [value]="loc"> {{loc}}
-            </div>
+            </span>
 
-           
+
 
             <mat-divider></mat-divider>
             <div class="d-flex flex-row ml-auto mr-auto">
                 <button mat-raised-button color="primary" class="m-4" type="submit">Login</button>
-
                 <button mat-raised-button color="warning" type="button" class="m-4" (click)="loginReactiveForm.reset()">Clear</button>
-
             </div>
 
             <mat-divider></mat-divider>
-            Dev mode : 
-            <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="setdefaultRF()">auto-fill</button>
-            <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="patchRF()">patch</button>
-            <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="addMoreFeilds()">add Feilds</button>
 
-             <!-- formArray -->
-             <div formArrayName="more-feilds" class="d-flex flex-row flex-wrap">
-                    <div *ngFor="let feild of loginReactiveForm.get('more-feilds').controls; let i = index" >
-                        <input placeholder="new feild"  type="text" [formControlName]="i" class="m-2">
-                        <mat-divider></mat-divider>
-                    </div>
-             </div>
+            Dev mode :
+
+            <div class="d-flex flex-row m-2">
+                <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="setdefaultRF()">auto-fill</button>
+                <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="patchRF()">patch</button>
+                <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="addMoreFeilds()">add Feilds</button>
+            </div>
+            <!-- formArray -->
+            <div formArrayName="more-feilds" class="d-flex flex-row flex-wrap">
+                <div *ngFor="let feild of loginReactiveForm.get('more-feilds').controls; let i = index">
+                    <label for="i">New FormControl  : {{i}} </label>
+                    <input placeholder="Enter SomeThing" type="text" [formControlName]="i" class="m-2">
+                    <mat-divider></mat-divider>
+                </div>
+            </div>
         </form>
-
-        
-
 
     </mat-card-content>
 </mat-card>
