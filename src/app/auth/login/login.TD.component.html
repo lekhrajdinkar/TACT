@@ -12,7 +12,7 @@
         <form (ngSubmit)="loginTD()" class="login-form" #loginForm="ngForm" autocomplete="off" novalidate>
 
             <div *ngIf="inProgress && loginForm.valid">
-                <app-progress-bar [message]="'authenticating...'" class="progress-comp"></app-progress-bar>
+                <app-progress-bar [message]="'authenticating...'" class="progress-comp" bgColor="#49f232" color="blue" width="1px"></app-progress-bar>
                 <mat-divider></mat-divider>
             </div>
 

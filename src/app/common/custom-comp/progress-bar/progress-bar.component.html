@@ -1,8 +1,8 @@
 <div class="text text-center text-sm text-muted mt-2"> {{message}}</div>
 
-<div class="loading-bar">
+<div class="loading-bar" [ngStyle]="getborder()">
 
-  <div class="loading-progress">
+  <div class="loading-progress" [ngStyle]="getBgColor()">
     
   </div>
 </div>

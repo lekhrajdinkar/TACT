@@ -2,13 +2,12 @@
     height: 20px;
     width: 300px;
     margin: 1rem;
-    border: 2px solid black;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 .loading-progress{
     height: 100%;
     width: 0px;
-    background-color: aqua;
     animation: progress-1 2s infinite ;
 }
 
