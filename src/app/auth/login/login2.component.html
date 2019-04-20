@@ -1,0 +1,35 @@
+<!-- 
+- read value from form
+- validations
+
+ -->
+
+<div class="m-4 border border-primary">
+<form  autocomplete="off" novalidate>
+    <fieldset>
+        <legend> Login</legend>
+        <div class="form-feild">
+            <label >User ID</label>
+            <input type="text" name="username" [(ngModel)]="loginModel.username">
+            <!-- 2 way binding -->
+        </div>
+
+        <div class="form-feild">
+                <label >password</label>
+                <input type="text" name="password" [ngModel]="loginModel.password" (input)="print($event)">
+                <!-- 1 way : set feild with backend value -->
+        </div>
+
+        <div class="form-feild">
+            <label >password</label>
+            <input type="text" name="f3" ngModel required minlength="5" maxlength="6" pattern="[0-9]+">
+            <!-- 3. no binding, just validation - attach 3 class -->
+    </div>
+
+</fieldset>
+</form>
+</div> 
+
+
+{{loginModel | json }}
+
