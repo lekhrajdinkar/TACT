@@ -81,7 +81,7 @@ loginRF() {
   this.inProgress = true;
   //this.authSrv.authorize(this.loginReactiveForm.credentials.value.username, this.loginReactiveForm.value.password);
   //this.authSrv.authorize(this.loginReactiveForm.value.username, this.loginReactiveForm.value.password);
-  this.authSrv.authorize(this.loginReactiveForm.get('username').value,this.loginReactiveForm.get('password').value);
+  this.authSrv.authorize(this.loginReactiveForm.get('credentials.username').value,this.loginReactiveForm.get('credentials.password').value);
 }
 
 setdefaultRF(){this.loginReactiveForm.setValue({

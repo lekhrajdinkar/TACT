@@ -30,7 +30,9 @@
             </mat-form-field>
 
             
-            <div *ngFor="let location of locations"> <label><input  type="radio" name="location" ngModel #loc="ngModel" [value]="location"> {{location}} </label></div>
+            <div *ngFor="let location of locations">
+                <input  type="radio" name="location" ngModel #loc="ngModel" [value]="location"> {{location}}
+            </div>
            
         </div>
 
