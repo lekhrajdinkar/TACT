@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, HostBinding, ViewChild } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, NgForm, NgModel} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators, NgForm, NgModel, NgModelGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
 import { routingAminTriggerEnterLeft } from 'src/app/common/tact.anim-1';
@@ -17,8 +17,11 @@ export class LoginComponent implements OnInit {
 
   //view form before submit
   @ViewChild('loginForm') loginForm : NgForm;
+  @ViewChild('lgroup') loginGroup : NgModelGroup;
 
   @HostBinding('@routingAminTriggerEnterLeft') routingAminTriggerEnterLeft = true;
+
+  locations = ['IRV', 'HRO'];
   
   inProgress = false;
 
@@ -30,7 +33,9 @@ export class LoginComponent implements OnInit {
 
   loginTD() {
     this.inProgress = true;
-    this.authSrv.authorize(this.loginForm.value.username, this.loginForm.value.password);
+    console.log(this.loginGroup);
+    //this.authSrv.authorize(this.loginForm.value.username, this.loginForm.value.password);
+    this.authSrv.authorize(this.loginGroup.value.username, this.loginGroup.value.password);
   }
 
  //Template 1

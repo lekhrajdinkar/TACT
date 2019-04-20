@@ -20,7 +20,7 @@ export class ProgressBarComponent implements OnInit {
   }
 
   getBgColor(){
-    console.log(this.bgColor);
+    //console.log(this.bgColor);
     
     return {
       "background-color": this.bgColor
