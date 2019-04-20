@@ -5,7 +5,7 @@
  -->
 
 <div class="m-4 border border-primary">
-<form  autocomplete="off" novalidate>
+<form  autocomplete="off" novalidate (ngSubmit)="submit(f)" #f="ngForm" #f2>
     <fieldset>
         <legend> Login</legend>
         <div class="form-feild">
@@ -21,10 +21,13 @@
         </div>
 
         <div class="form-feild">
-            <label >password</label>
-            <input type="text" name="f3" ngModel required minlength="5" maxlength="6" pattern="[0-9]+">
+            <label >feild 3 </label>
+            <input type="text" name="f3" ngModel required minlength="5" maxlength="6" pattern="[0-9]+" #f3="ngModel" (input)="f3Input(f3)">
             <!-- 3. no binding, just validation - attach 3 class -->
-    </div>
+        </div>
+
+        <button type="submit" name="submitButton" [disabled]="disable"> Submit button</button>
+        <button type="" [disabled]="!f.valid"> Normal button</button>
 
 </fieldset>
 </form>
