@@ -30,6 +30,8 @@
                     <input matInput type="password" placeholder="Enter password" [formControlName]="'password'">
                     <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
                 </mat-form-field>
+                <span class="help-block" style="color: coral; marker-end: 1rem;" *ngIf="loginReactiveForm.get('credentials.password').errors">
+                        invalid password</span>
             </div>
 
             <span *ngFor="let loc of locations">
@@ -58,8 +60,10 @@
                 <div *ngFor="let feild of loginReactiveForm.get('more-feilds').controls; let i = index">
                     <label for="i">New FormControl  : {{i}} </label>
                     <input placeholder="Enter SomeThing" type="text" [formControlName]="i" class="m-2">
+                    
                     <mat-divider></mat-divider>
                 </div>
+                
             </div>
         </form>
 

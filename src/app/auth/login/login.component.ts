@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators, NgForm, NgModel, NgModelGroup, FormC
 import {Router} from "@angular/router";
 import { AuthService } from 'src/app/SERVICE/auth-service.service';
 import { routingAminTriggerEnterLeft } from 'src/app/common/tact.anim-1';
+import { promise } from 'protractor';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
     'credentials' : new FormGroup(
         {
         'username' : new FormControl("INYLBD4", [Validators.required, Validators.minLength(6),this.customValidator1.bind(this)]), //custom validator
-        'password' : new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)])
+        'password' : new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)], this.customValidator2.bind(this))
         }
       ),
       
@@ -101,11 +102,29 @@ addMoreFeilds(){
   (<FormArray>this.loginReactiveForm.get('more-feilds')).push(control);
 }
 
+//Sync
 customValidator1(control : FormControl) : any{
   if (control.value === 'INYTEST') {
     return {'customValidatorKey' : true}; 
   }
   return null;
+}
+
+//Async
+customValidator2(control : FormControl) : Promise<any> {
+
+  const p = new Promise<any>((resolve, reject) => {
+    setTimeout(()=> {
+      console.log('validating... password : ', control.value)
+      if (control.value == '1234567') {
+        resolve( {'asynCustomValidator' : true});
+      }
+      else resolve(null);
+    }, 3000);
+    
+  })
+
+  return p;
 }
 
 //===============================
