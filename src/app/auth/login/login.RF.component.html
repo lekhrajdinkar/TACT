@@ -33,6 +33,7 @@
                 <input type="radio" [formControlName]="'location'" [value]="loc"> {{loc}}
             </div>
 
+           
 
             <mat-divider></mat-divider>
             <div class="d-flex flex-row ml-auto mr-auto">
@@ -42,11 +43,23 @@
 
             </div>
 
+            <mat-divider></mat-divider>
+            Dev mode : 
+            <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="setdefaultRF()">auto-fill</button>
+            <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="patchRF()">patch</button>
+            <button class="btn btn-sm btn-danger d-inline-block" type="button" (click)="addMoreFeilds()">add Feilds</button>
 
+             <!-- formArray -->
+             <div formArrayName="more-feilds" class="d-flex flex-row flex-wrap">
+                    <div *ngFor="let feild of loginReactiveForm.get('more-feilds').controls; let i = index" >
+                        <input placeholder="new feild"  type="text" [formControlName]="i" class="m-2">
+                        <mat-divider></mat-divider>
+                    </div>
+             </div>
         </form>
 
-        <mat-divider></mat-divider>
-        Dev mode : <button class="btn btn-sm btn-danger" type="button" (click)="setdefaultRF()">auto-fill</button>
-        <button class="btn btn-sm btn-danger" type="button" (click)="patchRF()">patch</button>
+        
+
+
     </mat-card-content>
 </mat-card>
