@@ -31,8 +31,13 @@ export class LoginComponent implements OnInit {
 
     //RF --> set defualtt  and validator (sync, asyn)
     this.loginReactiveForm = new FormGroup({
-      'username' : new FormControl("INYLBD4", [Validators.required, Validators.minLength(6)]),
-      'password' : new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)]),
+    'credentials' : new FormGroup(
+        {
+        'username' : new FormControl("INYLBD4", [Validators.required, Validators.minLength(6)]),
+        'password' : new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)])
+        }
+      ),
+      
       'location' : new FormControl("IRV", Validators.required)
     });
     console.log(this.loginReactiveForm);
@@ -74,13 +79,19 @@ loginReactiveForm : FormGroup;
 
 loginRF() {
   this.inProgress = true;
-  console.log(this.loginGroup);
-  //this.authSrv.authorize(this.loginForm.value.username, this.loginForm.value.password);
-  this.authSrv.authorize(this.loginGroup.value.username, this.loginGroup.value.password);
+  //this.authSrv.authorize(this.loginReactiveForm.credentials.value.username, this.loginReactiveForm.value.password);
+  //this.authSrv.authorize(this.loginReactiveForm.value.username, this.loginReactiveForm.value.password);
+  this.authSrv.authorize(this.loginReactiveForm.get('username').value,this.loginReactiveForm.get('password').value);
 }
 
-setdefaultRF(){this.setdefaultTD()} //same as TD
-patchRF() {this.patchTD()} //same as TD
+setdefaultRF(){this.loginReactiveForm.setValue({
+  'credentials':{'username' : "INYLBD", 'password' : '123456'}
+  ,'location': 'IRV'
+})} 
+
+patchRF() {this.loginReactiveForm.patchValue({
+  'location': 'IRV'
+})} 
 
 
 //===============================
