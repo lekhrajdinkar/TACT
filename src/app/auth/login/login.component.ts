@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   loginTD() {
     this.inProgress = true;
+    this.authSrv.authorize(this.loginForm.value.username, this.loginForm.value.password);
   }
 
  //Template 1

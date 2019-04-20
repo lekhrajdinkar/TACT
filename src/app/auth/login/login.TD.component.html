@@ -12,8 +12,8 @@
         <form (ngSubmit)="loginTD()" class="login-form" #loginForm="ngForm" autocomplete="off" novalidate>
 
             <div *ngIf="inProgress && loginForm.valid">
-            <app-progress-bar [message]="'authenticating...'" class="progress-comp"></app-progress-bar>
-            <mat-divider></mat-divider>
+                <app-progress-bar [message]="'authenticating...'" class="progress-comp"></app-progress-bar>
+                <mat-divider></mat-divider>
             </div>
 
             <mat-form-field class="mt-4">
@@ -28,11 +28,11 @@
             </mat-form-field>
 
             <mat-divider></mat-divider>
-<div class="d-flex flex-row ml-auto mr-auto">
-        <button mat-raised-button color="primary" class="m-4" type="submit" [disabled]="!loginForm.valid">Login</button>
+            <div class="d-flex flex-row ml-auto mr-auto">
+                <button mat-raised-button color="primary" class="m-4" type="submit" [disabled]="!loginForm.valid">Login</button>
 
-        <button mat-raised-button color="warning" class="m-4" (click)="loginForm.reset()">Clear</button>
-</div>
+                <button mat-raised-button color="warning" class="m-4" (click)="loginForm.reset()">Clear</button>
+            </div>
 
 
         </form>
