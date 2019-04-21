@@ -34,8 +34,7 @@
   </div>
 
 
-<div class="row">
-  <div class="col">
+  <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
     <a>
       <app-user-list-item [index]="i" [user]="user" *ngFor="let user of users; index as i" (click)="loadDetail(i)"
         [@compBump]="selectedItemIndex === i ? 'bump' : 'default'"
@@ -51,6 +50,15 @@
         <app-progress-bar [message]="'CP parent'" class="progress-comp" bgColor="#fff2b2" color="blue" width="3px"></app-progress-bar>
       </app-user-list-item>
     </a>
-  </div>
-</div>
+  <!-- </cdk-virtual-scroll-viewport> -->
+
+  <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+      <li *cdkVirtualFor="let user of users" class="example-item">
+          <h2>{{u.name}}</h2>
+      </li>
+  </cdk-virtual-scroll-viewport> -->
+
+
+
+
 

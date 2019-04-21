@@ -22,6 +22,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import * as fromAuth from './auth/auth.reducer';
 import {   PrimeNGModule} from './ngprime.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AboutComponent } from './common/about.component';
 
 @NgModule({
@@ -33,7 +35,7 @@ import { AboutComponent } from './common/about.component';
     HomeComponent,
     FundEditComponent,
     ErrorComponent, AboutComponent
-    //PaginatorComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,8 +50,16 @@ import { AboutComponent } from './common/about.component';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
-    StoreModule.forFeature('authState', fromAuth.authReducer)
+    StoreModule.forFeature('authState', fromAuth.authReducer),
 
+    AngularFireModule.initializeApp(
+      {apiKey: "AIzaSyA1GExf8PlXdTrSLPlQqkX8xqxFXcesSew",
+    authDomain: "tact-7534b.firebaseapp.com",
+    databaseURL: "https://tact-7534b.firebaseio.com",
+    projectId: "tact-7534b",
+    storageBucket: "tact-7534b.appspot.com",
+    messagingSenderId: "980217671333"}),
+    AngularFirestoreModule,
     
   ],
   providers: [],

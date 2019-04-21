@@ -2,3 +2,23 @@
     display: block;
     margin: 10px 2%;
 }
+
+
+.example-viewport {
+    margin: 2rem;
+    height: 100vh;
+    width: 80vw;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .example-item {
+   
+    margin: 1rem;
+    box-shadow: 5px 5px 5px black;
+    padding: 10px;
+
+  }
