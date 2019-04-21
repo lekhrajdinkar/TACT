@@ -60,6 +60,7 @@ export class AuthService {
      .subscribe(
       noop,
       (err) => {
+        //this.store.dispatch(new LoginAction({jwt: null, initial:null, login_status:'failed'}));
         alert('login failed. Check error Logs');
       }
     )

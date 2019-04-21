@@ -47,7 +47,7 @@ import {   PrimeNGModule} from './ngprime.module';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
-    StoreModule.forFeature('authState', fromAuth.reducer)
+    StoreModule.forFeature('authState', fromAuth.authReducer)
 
     
   ],
