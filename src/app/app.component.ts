@@ -34,7 +34,10 @@ export class AppComponent implements OnInit{
   //B. store approach
      this.isLoggedIn$ = this.store
      .pipe(
-       map(state => state.authState.isLoggedIn) 
+       map(state => {
+         console.log('Store Subcription ran ')
+         return state.authState.isLoggedIn;
+       }) 
       )
      //.subscribe(noop);
   }
