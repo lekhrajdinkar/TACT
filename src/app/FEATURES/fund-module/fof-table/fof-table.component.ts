@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Fund } from '../fund.model';
 import { FundService } from '../fund.service';
 import { TreeNode } from 'primeng/api';
+import * as faker from 'faker';
 
 @Component({
   selector: 'app-fof-table',
-  templateUrl: './fof-table.component.html',
+  //templateUrl: './fof-table.component.html',
+  templateUrl: './virtual.scroll.comp.html',
   styleUrls: ['./fof-table.component.css']
 })
 export class FofTableComponent implements OnInit {
@@ -14,6 +16,7 @@ export class FofTableComponent implements OnInit {
   cols: any[];
   fundNumbers: {label : String, value : String}[] ; 
   created_bys: {label : String, value : String}[] ;
+    peoples : any [];
 
   data = {
     labels: ['Growth','Equity','Bond'],
@@ -25,7 +28,15 @@ export class FofTableComponent implements OnInit {
     };
 
 
-    constructor(private fundSrv: FundService) { }
+    constructor(private fundSrv: FundService) { 
+        this.peoples =  Array(100).fill(1).map(_ =>  { return {
+            name : faker.name.findName(),
+            bio: faker.hacker.phrase()
+        };
+
+        });
+        //console.log(this.people);
+    }
 
     ngOnInit() {
         this.fundSrv.getAllFunds(1,100)
@@ -50,7 +61,7 @@ export class FofTableComponent implements OnInit {
     }
 
     getCardClass(isOdd: boolean, isFirst : boolean){
-        console.log('called', isFirst,  isOdd );
+        //console.log('called', isFirst,  isOdd );
         return {
             'is-odd' : isOdd,
             'fund-card' : true,

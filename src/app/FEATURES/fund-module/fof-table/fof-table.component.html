@@ -77,3 +77,22 @@
             <p-footer></p-footer>
     </p-card>
 </div>
+
+
+<mat-divider></mat-divider>
+<!-- <mat-tree>
+        <mat-tree-node> parent node </mat-tree-node>
+        <mat-tree-node> -- child node1 </mat-tree-node>
+        <mat-tree-node> -- child node2 </mat-tree-node>
+</mat-tree> -->
+
+<mat-list class="ml-auto mr-auto">
+        <h3 mat-subheader>Fund of Fund</h3>
+        <mat-list-item *ngFor="let fof of fofs | slice:0:3">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line>{{fof.abbr}} - {{fof.num}} - {{fof._id}}</h4>
+          <p mat-line> {{fof.created_by }} </p>
+          <p mat-line> {{fof.created_dt }} </p>
+        </mat-list-item>
+       
+</mat-list>

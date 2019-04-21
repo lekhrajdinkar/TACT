@@ -1,0 +1,6 @@
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <li *cdkVirtualFor="let p of peoples" class="example-item">
+        <h2>{{p.name}}</h2>
+        <p>{{p.bio}}</p>
+    </li>
+</cdk-virtual-scroll-viewport>
