@@ -12,8 +12,11 @@
                 <mat-icon>power_settings_new</mat-icon> <span>Logout</span>
             </a>
 
-            <a mat-list-item routerLink="/about">
+            <!-- <a mat-list-item (click)="display = true">
                 <mat-icon>info</mat-icon> <span>About</span>
+            </a> -->
+            <a mat-list-item (click)="about()">
+                    <mat-icon>info</mat-icon> <span>About tact</span>
             </a>
 
             <mat-divider></mat-divider>
@@ -116,3 +119,8 @@
 
 
 </mat-sidenav-container>
+
+<p-dialog header="About Tact" [(visible)]="display" [style]="{width: '300px'}"
+[contentStyle]="{'overflow':'visible'}" [transitionOptions]="'2ms'">
+        Version : 6.0
+</p-dialog>

@@ -22,6 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import * as fromAuth from './auth/auth.reducer';
 import {   PrimeNGModule} from './ngprime.module';
+import { AboutComponent } from './common/about.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import {   PrimeNGModule} from './ngprime.module';
     ReportComponent,
     HomeComponent,
     FundEditComponent,
-    ErrorComponent,
+    ErrorComponent, AboutComponent
     //PaginatorComponent
   ],
   imports: [
@@ -52,6 +53,7 @@ import {   PrimeNGModule} from './ngprime.module';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AboutComponent]
 })
 export class AppModule { }

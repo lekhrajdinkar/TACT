@@ -10,12 +10,13 @@ import {TreeNode} from 'primeng/api';
 import {ChartModule} from 'primeng/chart';
 import {CardModule} from 'primeng/card';
 import {OrganizationChartModule} from 'primeng/organizationchart';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
     imports:[SplitButtonModule,PaginatorModule, TableModule, PanelModule, DropdownModule, MultiSelectModule
-    ,TreeTableModule,ChartModule , CardModule],
+    ,TreeTableModule,ChartModule , CardModule, DialogModule],
 
     exports:[SplitButtonModule, PaginatorModule, TableModule, PanelModule, DropdownModule, MultiSelectModule
-    ,TreeTableModule,ChartModule, CardModule]
+    ,TreeTableModule,ChartModule, CardModule, DialogModule]
 })
 export class PrimeNGModule {}
